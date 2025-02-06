@@ -13,7 +13,7 @@ type TypographyProps = {
 const Typography: FC<TypographyProps> = ({
   className,
   font = "poppins",
-  weight = "700",
+  weight = "400",
   children,
   maxChar,
   onClick,
