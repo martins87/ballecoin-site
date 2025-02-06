@@ -1,12 +1,13 @@
 import Typography from "./Typography";
+import Button from "./ui/Button";
 import CenteredElement from "./ui/CenteredElement";
 import Container from "./ui/Container";
 
 const Navbar = () => {
   return (
-    <CenteredElement className="h-20">
+    <CenteredElement className="h-24">
       <Container>
-        <CenteredElement className="" justify="between">
+        <CenteredElement justify="between">
           <Typography className="text-2xl" weight="800">
             BalleCoin
           </Typography>
@@ -26,7 +27,7 @@ const Navbar = () => {
               </Typography>
             </CenteredElement>
           </CenteredElement>
-          <Typography>Navbar</Typography>
+          <Button label="Login" />
         </CenteredElement>
       </Container>
     </CenteredElement>
