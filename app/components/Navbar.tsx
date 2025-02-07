@@ -27,7 +27,7 @@ const Navbar = () => {
               </Typography>
             </CenteredElement>
           </CenteredElement>
-          <Button label="Login" />
+          <Button label="Login" rounded />
         </CenteredElement>
       </Container>
     </CenteredElement>
