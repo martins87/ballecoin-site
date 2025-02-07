@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="bg-gray-100 text-gray-600 py-8">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-y-4">
             <Typography className="text-xl" weight="600">
               BalleCoin
             </Typography>
@@ -21,7 +21,7 @@ export default function Footer() {
             </Typography>
           </div>
           {/* Site */}
-          <div>
+          <div className="flex flex-col gap-y-4">
             <Typography className="text-lg" weight="600">
               Site
             </Typography>
@@ -69,7 +69,7 @@ export default function Footer() {
             </ul>
           </div>
           {/* Suporte */}
-          <div>
+          <div className="flex flex-col gap-y-4">
             <Typography className="text-lg" weight="600">
               Suporte
             </Typography>
@@ -87,7 +87,7 @@ export default function Footer() {
             </ul>
           </div>
           {/* Redes sociais */}
-          <div>
+          <div className="flex flex-col gap-y-4">
             <Typography className="text-lg" weight="600">
               Redes Sociais
             </Typography>
@@ -116,8 +116,7 @@ export default function Footer() {
       </Container>
       <div className="mt-8 pt-8 border-t border-gray-200 text-center">
         <Typography className="text-base text-black/60" weight="700">
-          &copy; {new Date().getFullYear()} BalleCoin. Todos os direitos
-          reservados.
+          &copy; {new Date().getFullYear()} BalleCoin
         </Typography>
       </div>
     </footer>
