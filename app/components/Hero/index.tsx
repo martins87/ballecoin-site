@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <main>
       <CenteredElement className="h-[90vh]">
-        <Container className="w-full flex flex-row gap-x-4">
+        <Container className="flex flex-row gap-x-4">
           <CenteredElement
             className="h-full gap-y-10"
             direction="col"
@@ -25,7 +25,7 @@ const Hero = () => {
             </Typography>
             <Button label="Comece Agora" />
           </CenteredElement>
-          <CenteredElement className="relative w-2/3 h-full">
+          <CenteredElement className="hidden md:flex relative w-2/3 h-full">
             <Image className="scale-90 z-20" src={Ballerina} alt="ballerina" />
             <div className="absolute top-[27%] right-[15%] w-[65%] aspect-square bg-yellow-500/10 rounded-full z-0" />
           </CenteredElement>
