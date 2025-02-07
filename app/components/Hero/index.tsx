@@ -1,10 +1,11 @@
 import Image from "next/image";
+
 import Typography from "../Typography";
 import CenteredElement from "../ui/CenteredElement";
 import Container from "../ui/Container";
 import Oval from "./Oval";
-import Ballerina from "../../assets/images/ballerina-bg-5.png";
 import Button from "../ui/Button";
+import Ballerina from "../../assets/images/ballerina-bg-5.png";
 
 const Hero = () => {
   return (
@@ -15,7 +16,10 @@ const Hero = () => {
           direction="col"
           items="start"
         >
-          <Typography className="text-6xl text-[#008CFF]" weight="700">
+          <Typography
+            className="text-5xl sm:text-6xl text-[#008CFF]"
+            weight="700"
+          >
             Invista em arte e patrocine sonhos!
           </Typography>
           <Typography className="text-lg">
