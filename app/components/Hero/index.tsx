@@ -9,7 +9,7 @@ import Button from "../ui/Button";
 const Hero = () => {
   return (
     <main>
-      <CenteredElement className="h-[80vh]">
+      <CenteredElement className="h-[90vh]">
         <Container className="w-full flex flex-row gap-x-4">
           <CenteredElement
             className="h-full gap-y-10"
