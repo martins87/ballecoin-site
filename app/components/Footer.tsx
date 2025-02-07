@@ -17,7 +17,8 @@ export default function Footer() {
               BalleCoin
             </Typography>
             <Typography className="text-sm text-black/60" weight="500">
-              Highlight benefits of each exercise, both physical and mental
+              A primeira criptomoeda de apoio e doações para jovens talentos da
+              dança.
             </Typography>
           </div>
           {/* Site */}
