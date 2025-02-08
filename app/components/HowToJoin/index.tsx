@@ -5,7 +5,7 @@ import HowToJoinCard from "./HowToJoinCard";
 
 const HowToJoin = () => {
   return (
-    <Container className="my-32">
+    <Container className="mt-20 mb-32">
       <div className="w-[90%] sm:w-[75%] mb-14 text-center">
         <Typography className="text-4xl sm:text-6xl text-black" weight="700">
           Como fazer parte desse
