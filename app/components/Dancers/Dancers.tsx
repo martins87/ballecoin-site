@@ -1,17 +1,17 @@
 "use client";
 
 import CenteredElement from "../ui/CenteredElement";
-import TalentCard from "./TalentCard";
+import DancerCard from "./DancerCard";
 import Typography from "../Typography";
 import { dancers } from "../../constants/dancers";
 import { FC } from "react";
 import { useMediaQuery } from "react-responsive";
 
-type TalentsProps = {
+type DancersProps = {
   heroSection?: boolean;
 };
 
-const Talents: FC<TalentsProps> = ({ heroSection }) => {
+const Dancers: FC<DancersProps> = ({ heroSection }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
   const numOfItems = isMobile && !!heroSection ? 3 : dancers.length;
 
@@ -36,7 +36,7 @@ const Talents: FC<TalentsProps> = ({ heroSection }) => {
       </div>
       <CenteredElement className="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 tablet:grid-cols-4 gap-2 mb-10">
         {dancers.slice(0, numOfItems).map((dancer, index) => (
-          <TalentCard
+          <DancerCard
             index={index}
             key={index}
             name={dancer.name}
@@ -49,4 +49,4 @@ const Talents: FC<TalentsProps> = ({ heroSection }) => {
   );
 };
 
-export default Talents;
+export default Dancers;

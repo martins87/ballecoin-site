@@ -5,17 +5,17 @@ import { redirect } from "next/navigation";
 import Container from "../ui/Container";
 
 import Button from "../ui/Button";
-import Talents from "./Talents";
+import Dancers from "./Dancers";
 
-const talents = () => {
-  const handleSeeMore = () => redirect("/talents");
+const DancersSection = () => {
+  const handleSeeMore = () => redirect("/dancers");
 
   return (
     <Container className="my-20">
-      <Talents heroSection />
+      <Dancers heroSection />
       <Button label="Ver mais" onClick={handleSeeMore} />
     </Container>
   );
 };
 
-export default talents;
+export default DancersSection;

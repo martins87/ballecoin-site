@@ -1,6 +1,6 @@
 import Hero from "./components/Hero";
 import World from "./components/World";
-import Talents from "./components/Talents";
+import Dancers from "./components/Dancers";
 import HowToJoin from "./components/HowToJoin";
 import WhatIs from "./components/WhatIs";
 
@@ -11,7 +11,7 @@ export default function Home() {
       <World />
       <WhatIs />
       <HowToJoin />
-      <Talents />
+      <Dancers />
     </main>
   );
 }

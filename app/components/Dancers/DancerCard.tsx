@@ -6,14 +6,14 @@ import CenteredElement from "../ui/CenteredElement";
 import Typography from "../Typography";
 import { twMerge } from "tailwind-merge";
 
-type TalentCardProps = {
+type DancerCardProps = {
   index: number;
   img: StaticImport;
   name: string;
   description: string;
 };
 
-const TalentCard: FC<TalentCardProps> = ({ index, name, description, img }) => {
+const DancerCard: FC<DancerCardProps> = ({ index, name, description, img }) => {
   return (
     <CenteredElement
       className={twMerge(
@@ -35,4 +35,4 @@ const TalentCard: FC<TalentCardProps> = ({ index, name, description, img }) => {
   );
 };
 
-export default TalentCard;
+export default DancerCard;
