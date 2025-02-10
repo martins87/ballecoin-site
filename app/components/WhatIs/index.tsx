@@ -3,6 +3,7 @@ import Image from "next/image";
 import Typography from "../Typography";
 import CenteredElement from "../ui/CenteredElement";
 import Container from "../ui/Container";
+import Button from "../ui/Button";
 import Check from "../../assets/icons/check.svg";
 import Ballerina from "../../assets/images/ballerina.png";
 
@@ -47,6 +48,7 @@ const WhatIs = () => {
               </CenteredElement>
             ))}
           </CenteredElement>
+          <Button label="Saiba mais" />
         </CenteredElement>
         <CenteredElement className="hidden md:flex relative w-2/3 h-full">
           <Image className="scale-90 z-20" src={Ballerina} alt="ballerina" />
