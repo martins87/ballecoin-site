@@ -22,12 +22,16 @@ const Navbar = () => {
                   Home
                 </Typography>
               </Link>
-              <Typography className="text-base text-[#5A5A5A]" weight="500">
-                About
-              </Typography>
-              <Typography className="text-base text-[#5A5A5A]" weight="500">
-                How to join
-              </Typography>
+              <Link href="/about">
+                <Typography className="text-base text-[#5A5A5A]" weight="500">
+                  About
+                </Typography>
+              </Link>
+              <Link href="/join">
+                <Typography className="text-base text-[#5A5A5A]" weight="500">
+                  How to join
+                </Typography>
+              </Link>
               <Link href="/dancers">
                 <Typography className="text-base text-[#5A5A5A]" weight="500">
                   Dancers

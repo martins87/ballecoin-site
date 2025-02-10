@@ -41,7 +41,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#"
+                  href="/about"
                   className="hover:text-gray-900 transition-colors"
                 >
                   <Typography className="text-base text-black/60" weight="500">
@@ -51,7 +51,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/join"
                   className="hover:text-gray-900 transition-colors"
                 >
                   <Typography className="text-base text-black/60" weight="500">
