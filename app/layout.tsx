@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./globals.css";
+import Session from "./components/Session";
 
 const poppins = localFont({
   src: [
@@ -77,12 +78,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} ${inter.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <Session>
+      <html lang="en">
+        <body className={`${poppins.variable} ${inter.variable} antialiased`}>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </Session>
   );
 }

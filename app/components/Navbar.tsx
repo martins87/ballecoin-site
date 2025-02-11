@@ -1,11 +1,25 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 import Typography from "./Typography";
 import Button from "./ui/Button";
 import CenteredElement from "./ui/CenteredElement";
 import Container from "./ui/Container";
+import dancer from "../assets/images/dancers/dancer-0.png";
 
 const Navbar = () => {
+  const { data: session, status } = useSession();
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+
+  console.log("status:", status);
+  console.log("session data:", session);
+
+  useEffect(() => setIsLoggedIn(status === "authenticated"), [status]);
+
   return (
     <CenteredElement className="h-24">
       <Container>
@@ -39,9 +53,21 @@ const Navbar = () => {
               </Link>
             </CenteredElement>
           </CenteredElement>
-          <Link href="/login">
-            <Button label="Login" rounded />
-          </Link>
+          {isLoggedIn ? (
+            <Link href="/profile">
+              <Image
+                className="w-12 aspect-square rounded-full"
+                src={dancer} // edit this line to render image gotten from object session.user.image
+                alt="Profile"
+                priority
+                // unoptimized={typeof profileImage === "string"}
+              />
+            </Link>
+          ) : (
+            <Link href="/login">
+              <Button label="Login" rounded />
+            </Link>
+          )}
         </CenteredElement>
       </Container>
     </CenteredElement>
