@@ -4,7 +4,7 @@ import CenteredElement from "../ui/CenteredElement";
 import Container from "../ui/Container";
 import Typography from "../Typography";
 import GoogleLoginButton from "./GoogleLoginButton";
-import Logo from "./../assets/icons/ballecoin-logo.png";
+import Logo from "../../assets/icons/ballecoin-logo.png";
 
 export default function LoginPage() {
   return (
