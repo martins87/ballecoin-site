@@ -3,7 +3,7 @@ import CenteredElement from "../ui/CenteredElement";
 import Container from "../ui/Container";
 import HowToJoinCard from "./HowToJoinCard";
 
-const HowToJoin = () => {
+const HowSection = () => {
   return (
     <Container className="mt-20 mb-32">
       <div className="w-[90%] sm:w-[75%] mb-14 text-center">
@@ -41,4 +41,4 @@ const HowToJoin = () => {
   );
 };
 
-export default HowToJoin;
+export default HowSection;

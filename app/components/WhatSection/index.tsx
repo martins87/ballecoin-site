@@ -13,7 +13,7 @@ const features: string[] = [
   "Comunidade global unida pela dança",
 ];
 
-const WhatIs = () => {
+const WhatSection = () => {
   return (
     <CenteredElement className="h-[90vh] mt-10">
       <Container className="flex flex-row gap-x-4">
@@ -59,4 +59,4 @@ const WhatIs = () => {
   );
 };
 
-export default WhatIs;
+export default WhatSection;
