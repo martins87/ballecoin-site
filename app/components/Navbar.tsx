@@ -39,7 +39,9 @@ const Navbar = () => {
               </Link>
             </CenteredElement>
           </CenteredElement>
-          <Button label="Login" rounded />
+          <Link href="/login">
+            <Button label="Login" rounded />
+          </Link>
         </CenteredElement>
       </Container>
     </CenteredElement>
