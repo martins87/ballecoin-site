@@ -25,11 +25,6 @@ export default function ProfilePage() {
     <div className="min-h-screen bg-gray-50 py-14">
       <Container className="bg-white rounded-xl shadow-sm p-8">
         <div className="flex items-center gap-6 mb-8">
-          {/* <Image
-            className="w-32 aspect-square rounded-full"
-            src={DancerImg}
-            alt="Profile picture"
-          /> */}
           <Image
             width={128}
             height={128}

@@ -24,7 +24,7 @@ export const reasons = [
     // label: "Pagamento em eventos",
     label: "Event payments",
     // description: "Utilize Ballecoin para inscrições em audições e prêmios.",
-    description: "Use Ballecoin for audition registrations and awards.",
+    description: "Use Ballecoin for auditions, contests, competitions and awards.",
   },
   {
     // label: "Inclusão digital",
