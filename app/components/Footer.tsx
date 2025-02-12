@@ -12,7 +12,6 @@ export default function Footer() {
   return (
     <footer className="bg-gray-100 text-gray-600 py-8">
       <Container>
-        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8"> */}
         <CenteredElement
           className="flex-col md:flex-row gap-x-4 gap-y-10"
           items="start"
@@ -28,8 +27,10 @@ export default function Footer() {
               className="w-full md:w-1/2 text-sm text-black/60"
               weight="500"
             >
-              A primeira criptomoeda de apoio e doações para jovens talentos da
-              dança.
+              {/* A primeira criptomoeda de apoio e doações para jovens talentos da
+              dança. */}
+              The first cryptocurrency for support and donations to young dance
+              talents.
             </Typography>
           </div>
 
@@ -72,29 +73,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Suporte */}
-          {/* <div className="flex flex-col gap-y-4">
-            <Typography className="text-lg" weight="600">
-              Suporte
-            </Typography>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-gray-900 transition-colors"
-                >
-                  <Typography className="text-base text-black/60" weight="500">
-                    FAQ
-                  </Typography>
-                </Link>
-              </li>
-            </ul>
-          </div> */}
-
-          {/* Redes sociais */}
+          {/* Social Media */}
           <div className="flex flex-col gap-y-3">
             <Typography className="text-lg" weight="600">
-              Redes Sociais
+              {/* Redes Sociais */}
+              Social Media
             </Typography>
             <div className="flex gap-x-4">
               <Image
