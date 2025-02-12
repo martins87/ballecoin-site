@@ -9,16 +9,20 @@ import Typography from "./Typography";
 import Button from "./ui/Button";
 import CenteredElement from "./ui/CenteredElement";
 import Container from "./ui/Container";
-import dancer from "../assets/images/dancers/dancer-0.png";
 
 const Navbar = () => {
   const { data: session, status } = useSession();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-
-  console.log("status:", status);
-  console.log("session data:", session);
+  const [profileImage, setProfileImage] = useState<string>("");
 
   useEffect(() => setIsLoggedIn(status === "authenticated"), [status]);
+
+  useEffect(() => {
+    if (session) {
+      const image = session.user?.image;
+      setProfileImage(image!);
+    }
+  }, [session]);
 
   return (
     <CenteredElement className="h-24">
@@ -56,11 +60,13 @@ const Navbar = () => {
           {isLoggedIn ? (
             <Link href="/profile">
               <Image
-                className="w-12 aspect-square rounded-full"
-                src={dancer} // edit this line to render image gotten from object session.user.image
-                alt="Profile"
+                width={52}
+                height={52}
+                className="rounded-full"
+                src={profileImage}
+                alt="Profile img"
                 priority
-                // unoptimized={typeof profileImage === "string"}
+                unoptimized={typeof profileImage === "string"}
               />
             </Link>
           ) : (

@@ -1,21 +1,43 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 import { Input } from "./Input";
 import { Textarea } from "./Textarea";
 import Typography from "./Typography";
 import Button from "./ui/Button";
 import Container from "./ui/Container";
-import DancerImg from "../assets/images/dancers/dancer-0.png";
 
 export default function ProfilePage() {
+  const { data: session } = useSession();
+  const [profileImage, setProfileImage] = useState<string>("");
+
+  useEffect(() => {
+    if (session) {
+      const image = session.user?.image;
+      setProfileImage(image!);
+    }
+  }, [session]);
+
   return (
     <div className="min-h-screen bg-gray-50 py-14">
       <Container className="bg-white rounded-xl shadow-sm p-8">
         <div className="flex items-center gap-6 mb-8">
-          <Image
+          {/* <Image
             className="w-32 aspect-square rounded-full"
             src={DancerImg}
             alt="Profile picture"
+          /> */}
+          <Image
+            width={128}
+            height={128}
+            className="rounded-full"
+            src={profileImage}
+            alt="Profile img"
+            priority
+            unoptimized={typeof profileImage === "string"}
           />
           <Typography className="text-3xl" weight="700">
             Profile
