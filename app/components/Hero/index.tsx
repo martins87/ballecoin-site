@@ -14,7 +14,7 @@ const Hero = () => {
   const handleClick = () => redirect("/join");
 
   return (
-    <CenteredElement className="h-[90vh] -mt-6 sm:mt-0">
+    <CenteredElement className="h-[90vh] -mt-10 sm:mt-0">
       <Container className="flex flex-row gap-x-4">
         <CenteredElement
           className="h-full gap-y-10"
