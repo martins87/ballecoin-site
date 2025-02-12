@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 import Typography from "../Typography";
 import CenteredElement from "../ui/CenteredElement";
@@ -8,12 +11,17 @@ import Check from "../../assets/icons/check.svg";
 import Ballerina from "../../assets/images/ballerina.png";
 
 const features: string[] = [
-  "Baixo custo de transação",
-  "Segurança e transparência via blockchain",
-  "Comunidade global unida pela dança",
+  // "Baixo custo de transação",
+  // "Segurança e transparência via blockchain",
+  // "Comunidade global unida pela dança",
+  "Low transaction cost",
+  "Security and transparency through blockchain",
+  "A global community united by dance",
 ];
 
 const WhatSection = () => {
+  const handleClick = () => redirect("/about");
+
   return (
     <CenteredElement className="h-[90vh] mt-10">
       <Container className="flex flex-row gap-x-4">
@@ -29,10 +37,14 @@ const WhatSection = () => {
             What is BalleCoin?
           </Typography>
           <Typography className="text-base sm:text-lg text-black/80">
-            Ballecoin é uma criptomoeda projetada para conectar jovens talentos
+            {/* Ballecoin é uma criptomoeda projetada para conectar jovens talentos
             da dança com filantropos em uma rede global de apoio. Utilizando
             tecnologia blockchain, garante transparência, segurança e transações
-            sem custo, permitindo que a arte alcance novos patamares.
+            sem custo, permitindo que a arte alcance novos patamares. */}
+            Ballecoin is a cryptocurrency designed to connect young dance talent
+            with philanthropists in a global support network. Using blockchain
+            technology, it ensures transparency, security and cost-free
+            transactions, allowing the art form to reach new heights.
           </Typography>
           <CenteredElement className="gap-y-4" direction="col">
             {features.map((feature) => (
@@ -48,7 +60,8 @@ const WhatSection = () => {
               </CenteredElement>
             ))}
           </CenteredElement>
-          <Button label="Saiba mais" />
+          {/* <Button label="Saiba mais" /> */}
+          <Button label="Learn More" onClick={handleClick} />
         </CenteredElement>
         <CenteredElement className="hidden md:flex relative w-2/3 h-full">
           <Image className="scale-90 z-20" src={Ballerina} alt="ballerina" />

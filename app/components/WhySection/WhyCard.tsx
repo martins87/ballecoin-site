@@ -12,7 +12,7 @@ type WhyCardProps = {
 const WhyCard: FC<WhyCardProps> = ({ number, label, description }) => {
   return (
     <CenteredElement
-      className="gap-2 min-h-56 p-4 bg-[#FFFFFF] border-[1px] border-[rgba(216,216,216,0.4)] [box-shadow:0px_4px_31px_rgba(0,_0,_0,_0.25)] rounded-[10px]"
+      className="gap-2 min-h-60 px-4 pt-4 pb-2 bg-[#FFFFFF] border-[1px] border-[rgba(216,216,216,0.4)] [box-shadow:0px_4px_31px_rgba(0,_0,_0,_0.25)] rounded-[10px]"
       items="start"
       justify="start"
       direction="col"

@@ -19,13 +19,18 @@ const World = () => {
           className="w-full text-4xl sm:text-6xl text-white text-center z-30 mt-[20%] sm:mt-[10%]"
           weight="700"
         >
-          O mundo da arte em um só lugar
+          {/* O mundo da arte em um só lugar */}
+          The world of art in one place.
         </Typography>
         <Typography className="w-[90%] sm:w-[65%] z-30 text-center text-white">
-          Ao comprar Ballecoin, você apoia jovens talentos da dança em todo o
+          {/* Ao comprar Ballecoin, você apoia jovens talentos da dança em todo o
           mundo, conectando-os a oportunidades sem intermediários. Seu
           investimento impulsiona artistas, financia competições e fortalece a
-          arte com transparência e impacto real.
+          arte com transparência e impacto real. */}
+          By purchasing Ballecoin, you support young dance talents worldwide,
+          connecting them to opportunities without intermediaries. Your
+          investment empowers artists, funds competitions, and strengthens the
+          arts with transparency and real impact.
         </Typography>
       </Container>
     </CenteredElement>
