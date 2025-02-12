@@ -22,16 +22,19 @@ const Dancers: FC<DancersProps> = ({ heroSection }) => {
           className="text-4xl sm:text-6xl text-[#008CFF]"
           weight="700"
         >
-          Talentos
+          {/* Talentos */}
+          Talents
         </Typography>
         <Typography className="text-4xl sm:text-6xl text-black" weight="700">
-          &nbsp;que precisam do
+          {/* &nbsp;que precisam do */}
+          &nbsp;that need
         </Typography>
         <Typography
           className="text-4xl sm:text-6xl text-[#008CFF]"
           weight="700"
         >
-          &nbsp;seu apoio
+          {/* &nbsp;seu apoio */}
+          &nbsp;your support
         </Typography>
       </div>
       <CenteredElement className="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 tablet:grid-cols-4 gap-2 mb-10">

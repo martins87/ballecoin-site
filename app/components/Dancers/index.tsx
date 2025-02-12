@@ -13,7 +13,8 @@ const DancersSection = () => {
   return (
     <Container className="my-20">
       <Dancers heroSection />
-      <Button label="Ver mais" onClick={handleSeeMore} />
+      {/* <Button label="Ver mais" onClick={handleSeeMore} /> */}
+      <Button label="See More" onClick={handleSeeMore} />
     </Container>
   );
 };
