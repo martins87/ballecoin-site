@@ -11,7 +11,7 @@ import Ballerina from "../../assets/images/ballerina-bg-5.png";
 import CircularBackground from "./CircularBackground";
 
 const Hero = () => {
-  const handleClick = () => redirect("/join");
+  const handleClick = () => redirect("/about");
 
   return (
     <CenteredElement className="h-[90vh] -mt-10 sm:mt-0">
