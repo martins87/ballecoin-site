@@ -7,7 +7,8 @@ const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET!;
 
 const getDancerByEmail = async (email: string) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/dancers/${email}`, {
+    // const response = await fetch(`http://localhost:3000/api/dancers/${email}`, {
+    const response = await fetch(`https://ballecoin-site.vercel.app/api/dancers/${email}`, {
       cache: 'no-store'
     });
 
@@ -22,7 +23,8 @@ const getDancerByEmail = async (email: string) => {
 
 const addDancer = async (name: string, email: string) => {
   try {
-    const response = await fetch("http://localhost:3000/api/dancers", {
+    // const response = await fetch("http://localhost:3000/api/dancers", {
+    const response = await fetch("https://ballecoin-site.vercel.app/api/dancers", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ name, email })
