@@ -53,7 +53,7 @@ const AboutPage = () => {
       </CenteredElement>
       <CenteredElement className="gap-y-2 md:gap-y-3 mt-10" direction="col">
         <Typography className="text-xl" weight="600">
-          Buy on:
+          Trade on:
         </Typography>
         <CenteredElement className="gap-x-10">
           <Link
