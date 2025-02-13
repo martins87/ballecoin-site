@@ -10,3 +10,15 @@ export async function GET(request: NextRequest, { params }){
   const dancer = await Dancer.findOne({ email });
   return NextResponse.json(dancer, { status: 200 });
 }
+
+// @ts-expect-error:next-line
+export async function PUT(request: NextRequest, { params }) {
+  const { email } = params; 
+  const {
+    newName: name
+    // more fields
+  } = await request.json();
+  await connectMongoDB();
+  await Dancer.findOneAndUpdate({ email: email}, { name: name });
+  return NextResponse.json({ message: "Dancer updated" }, { status: 200 });
+}

@@ -1,0 +1,72 @@
+import mongoose from "mongoose";
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+const connectMongoDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI!);
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default connectMongoDB;
+
+export const getDancerByEmail = async (email: string) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/dancers/${email}`, {
+      cache: 'no-store'
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch dancer");
+    }
+    return response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const addDancer = async (name: string, email: string) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/dancers/`, {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({ name, email })
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to add dancer");
+    }
+
+    console.log("Dancer added successfully");
+
+    return response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const updateDancer = async (name: string, email: string) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/dancers/${email}`, {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        newName: name,
+        email
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to add dancer");
+    }
+
+    console.log("Dancer edited successfully");
+
+    return response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}

@@ -2,44 +2,10 @@ import { NextAuthOptions } from 'next-auth';
 import NextAuth from 'next-auth/next';
 import GoogleProvider from 'next-auth/providers/google';
 
+import { addDancer, getDancerByEmail } from '@/app/lib/db';
+
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID!;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET!;
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-const getDancerByEmail = async (email: string) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/dancers/${email}`, {
-      cache: 'no-store'
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch dancer");
-    }
-    return response.json();
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-const addDancer = async (name: string, email: string) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/dancers/`, {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ name, email })
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to add dancer");
-    }
-
-    console.log("Dancer added successfully");
-
-    return response.json();
-  } catch (error) {
-    console.error(error);
-  }
-}
 
 const authOptions: NextAuthOptions = {
 

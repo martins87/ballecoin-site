@@ -9,24 +9,44 @@ import { Textarea } from "./Textarea";
 import Typography from "./Typography";
 import Button from "./ui/Button";
 import Container from "./ui/Container";
+import { getDancerByEmail, updateDancer } from "../lib/db";
 
 export default function ProfilePage() {
   const { data: session } = useSession();
   const [profileImage, setProfileImage] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  // const [residenceCountry, setResidenceCountry] = useState<string>("");
 
   useEffect(() => {
-    if (session) {
-      console.log("LoggeIn:", session);
-      const image = session.user?.image;
-      const name = session.user?.name;
-      const email = session.user?.email;
-      setProfileImage(image!);
-      setName(name!);
-      setEmail(email!);
-    }
+    const getDancer = async () => {
+      if (session) {
+        console.log("LoggedIn:", session);
+        const sessionImage = session.user?.image;
+        const sessionEmail = session.user?.email;
+
+        const dancer = await getDancerByEmail(sessionEmail!);
+
+        console.log("dancer gotten from database", dancer);
+        setProfileImage(sessionImage!);
+        setName(dancer.name);
+        setEmail(dancer.email);
+      }
+    };
+
+    getDancer();
   }, [session]);
+
+  const handleSave = async () => {
+    // logic
+    try {
+      await updateDancer(name, email);
+      console.log("Dancer updated successfully");
+      alert("Dancer updated successfully");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-14">
@@ -68,7 +88,7 @@ export default function ProfilePage() {
                 type="email"
                 placeholder="Enter your email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                disabled
               />
             </div>
             <div className="space-y-2">
@@ -120,10 +140,12 @@ export default function ProfilePage() {
             <Button
               className="px-8 py-2 bg-gradient-to-r from-[#F2D356] to-[#DC6033] hover:opacity-90 transition-opacity"
               label="Edit"
+              // onClick={}
             />
             <Button
               className="px-8 py-2 bg-gradient-to-r from-[#5656F2] to-[#3333DC] hover:opacity-90 transition-opacity"
               label="Save"
+              onClick={handleSave}
             />
           </div>
         </form>
