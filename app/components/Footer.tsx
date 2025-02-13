@@ -99,12 +99,19 @@ export default function Footer() {
                   alt="x icon"
                 />
               </Link>
-              <Image
-                width={24}
-                className="text-gray-600 hover:cursor-pointer hover:scale-125 hover:text-gray-900 transition-all duration-300 ease-in-out"
-                src={Instagram}
-                alt="instagram icon"
-              />
+              <Link
+                className="flex items-center justify-between gap-x-2"
+                href="https://instagram.com/ballecoincommunity"
+                target="_blank"
+                rel="noopener"
+              >
+                <Image
+                  width={24}
+                  className="text-gray-600 hover:cursor-pointer hover:scale-125 hover:text-gray-900 transition-all duration-300 ease-in-out"
+                  src={Instagram}
+                  alt="instagram icon"
+                />
+              </Link>
             </div>
           </div>
         </CenteredElement>
