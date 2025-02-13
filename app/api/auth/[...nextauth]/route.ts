@@ -4,11 +4,11 @@ import GoogleProvider from 'next-auth/providers/google';
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID!;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET!;
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const getDancerByEmail = async (email: string) => {
   try {
-    // const response = await fetch(`http://localhost:3000/api/dancers/${email}`, {
-    const response = await fetch(`https://ballecoin-site.vercel.app/api/dancers/${email}`, {
+    const response = await fetch(`${API_BASE_URL}/api/dancers/${email}`, {
       cache: 'no-store'
     });
 
@@ -23,7 +23,6 @@ const getDancerByEmail = async (email: string) => {
 
 const addDancer = async (name: string, email: string) => {
   try {
-    // const response = await fetch("http://localhost:3000/api/dancers", {
     const response = await fetch("https://ballecoin-site.vercel.app/api/dancers", {
       method: "POST",
       headers: { "Content-type": "application/json" },
