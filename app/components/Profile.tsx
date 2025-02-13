@@ -13,11 +13,18 @@ import Container from "./ui/Container";
 export default function ProfilePage() {
   const { data: session } = useSession();
   const [profileImage, setProfileImage] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
 
   useEffect(() => {
     if (session) {
+      console.log("LoggeIn:", session);
       const image = session.user?.image;
+      const name = session.user?.name;
+      const email = session.user?.email;
       setProfileImage(image!);
+      setName(name!);
+      setEmail(email!);
     }
   }, [session]);
 
@@ -45,7 +52,12 @@ export default function ProfilePage() {
               <Typography className="text-base" weight="500" font="inter">
                 Name
               </Typography>
-              <Input className="rounded-[9px]" placeholder="Enter your name" />
+              <Input
+                className="rounded-[9px]"
+                placeholder="Enter your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
             <div className="space-y-2">
               <Typography className="text-base" weight="500" font="inter">
@@ -55,6 +67,8 @@ export default function ProfilePage() {
                 className="rounded-[9px]"
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="space-y-2">
