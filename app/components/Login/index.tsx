@@ -16,7 +16,6 @@ export default function LoginPage() {
             src={Logo}
             alt="ballecoin logo"
           />
-
           <Typography
             className="text-3xl tracking-tight text-gray-900"
             weight="700"
@@ -24,9 +23,7 @@ export default function LoginPage() {
             Login
           </Typography>
         </CenteredElement>
-
         <GoogleLoginButton />
-
         <CenteredElement className="gap-x-4">
           <Typography className="text-sm text-black/50" font="inter">
             Termos de Uso
