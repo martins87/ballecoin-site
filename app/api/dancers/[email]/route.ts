@@ -20,6 +20,8 @@ export async function PUT(request: NextRequest, { params }) {
     newSolanaAddress: solanaAddress,
     newBirthCountry: birthCountry,
     newDescription: description,
+    newInstagram: instagram,
+    newTiktok: tiktok,
   } = await request.json();
   await connectMongoDB();
   await Dancer.findOneAndUpdate(
@@ -29,7 +31,9 @@ export async function PUT(request: NextRequest, { params }) {
       residenceCountry,
       solanaAddress,
       birthCountry,
-      description
+      description,
+      instagram,
+      tiktok
     }
   );
   return NextResponse.json({ message: "Dancer updated" }, { status: 200 });

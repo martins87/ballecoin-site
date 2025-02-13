@@ -55,6 +55,8 @@ export const updateDancer = async (
   solanaAddress: string,
   birthCountry: string,
   description: string,
+  instagram: string,
+  tiktok: string,
 ) => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/dancers/${email}`, {
@@ -67,6 +69,8 @@ export const updateDancer = async (
         newSolanaAddress: solanaAddress,
         newBirthCountry: birthCountry,
         newDescription: description,
+        newInstagram: instagram,
+        newTiktok: tiktok,
       })
     });
 

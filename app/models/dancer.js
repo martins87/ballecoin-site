@@ -9,8 +9,8 @@ const dancerSchema = new Schema(
     birthCountry: String,
     // birthdate: String,
     description: String,
-    // instagram: String,
-    // tiktok: String,
+    instagram: String,
+    tiktok: String,
   },
   { timestamps: true }
 );

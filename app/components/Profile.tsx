@@ -20,6 +20,8 @@ export default function ProfilePage() {
   const [solanaAddress, setSolanaAddress] = useState<string>("");
   const [birthCountry, setBirthCountry] = useState<string>("");
   const [description, setDescription] = useState<string>("");
+  const [instagram, setInstagram] = useState<string>("");
+  const [tiktok, setTiktok] = useState<string>("");
 
   useEffect(() => {
     const getDancer = async () => {
@@ -38,6 +40,8 @@ export default function ProfilePage() {
         setSolanaAddress(dancer.solanaAddress);
         setBirthCountry(dancer.birthCountry);
         setDescription(dancer.description);
+        setInstagram(dancer.instagram);
+        setTiktok(dancer.tiktok);
       }
     };
 
@@ -52,7 +56,9 @@ export default function ProfilePage() {
         residenceCountry,
         solanaAddress,
         birthCountry,
-        description
+        description,
+        instagram,
+        tiktok
       );
       console.log("Dancer updated successfully:", updatedDancer);
       alert("Dancer updated successfully");
@@ -142,6 +148,28 @@ export default function ProfilePage() {
                 Date of Birth
               </Typography>
               <Input className="rounded-[9px]" type="date" />
+            </div>
+            <div className="space-y-2">
+              <Typography className="text-base" weight="500" font="inter">
+                Instagram
+              </Typography>
+              <Input
+                className="rounded-[9px]"
+                placeholder="Enter your Instagram username"
+                value={instagram}
+                onChange={(e) => setInstagram(e.target.value)}
+              />
+            </div>
+            <div className="space-y-2">
+              <Typography className="text-base" weight="500" font="inter">
+                Tiktok
+              </Typography>
+              <Input
+                className="rounded-[9px]"
+                placeholder="Enter your Tiktok username"
+                value={tiktok}
+                onChange={(e) => setTiktok(e.target.value)}
+              />
             </div>
           </div>
 
