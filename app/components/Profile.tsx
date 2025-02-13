@@ -16,7 +16,10 @@ export default function ProfilePage() {
   const [profileImage, setProfileImage] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  // const [residenceCountry, setResidenceCountry] = useState<string>("");
+  const [residenceCountry, setResidenceCountry] = useState<string>("");
+  const [solanaAddress, setSolanaAddress] = useState<string>("");
+  const [birthCountry, setBirthCountry] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
 
   useEffect(() => {
     const getDancer = async () => {
@@ -31,6 +34,10 @@ export default function ProfilePage() {
         setProfileImage(sessionImage!);
         setName(dancer.name);
         setEmail(dancer.email);
+        setResidenceCountry(dancer.residenceCountry);
+        setSolanaAddress(dancer.solanaAddress);
+        setBirthCountry(dancer.birthCountry);
+        setDescription(dancer.description);
       }
     };
 
@@ -38,10 +45,16 @@ export default function ProfilePage() {
   }, [session]);
 
   const handleSave = async () => {
-    // logic
     try {
-      await updateDancer(name, email);
-      console.log("Dancer updated successfully");
+      const updatedDancer = await updateDancer(
+        name,
+        email,
+        residenceCountry,
+        solanaAddress,
+        birthCountry,
+        description
+      );
+      console.log("Dancer updated successfully:", updatedDancer);
       alert("Dancer updated successfully");
     } catch (error) {
       console.error(error);
@@ -98,6 +111,8 @@ export default function ProfilePage() {
               <Input
                 className="rounded-[9px]"
                 placeholder="Enter your current country"
+                value={residenceCountry}
+                onChange={(e) => setResidenceCountry(e.target.value)}
               />
             </div>
             <div className="space-y-2">
@@ -107,6 +122,8 @@ export default function ProfilePage() {
               <Input
                 className="rounded-[9px]"
                 placeholder="Enter your Solana address"
+                value={solanaAddress}
+                onChange={(e) => setSolanaAddress(e.target.value)}
               />
             </div>
             <div className="space-y-2">
@@ -116,6 +133,8 @@ export default function ProfilePage() {
               <Input
                 className="rounded-[9px]"
                 placeholder="Enter your birth country"
+                value={birthCountry}
+                onChange={(e) => setBirthCountry(e.target.value)}
               />
             </div>
             <div className="space-y-2">
@@ -133,6 +152,8 @@ export default function ProfilePage() {
             <Textarea
               className="rounded-[9px] min-h-[120px]"
               placeholder="Write your bio here..."
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             />
           </div>
 

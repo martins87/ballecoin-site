@@ -48,19 +48,30 @@ export const addDancer = async (name: string, email: string) => {
   }
 }
 
-export const updateDancer = async (name: string, email: string) => {
+export const updateDancer = async (
+  name: string,
+  email: string,
+  residenceCountry: string,
+  solanaAddress: string,
+  birthCountry: string,
+  description: string,
+) => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/dancers/${email}`, {
       method: "PUT",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
         newName: name,
-        email
+        email,
+        newResidenceCountry: residenceCountry,
+        newSolanaAddress: solanaAddress,
+        newBirthCountry: birthCountry,
+        newDescription: description,
       })
     });
 
     if (!response.ok) {
-      throw new Error("Failed to add dancer");
+      throw new Error("Failed to update dancer");
     }
 
     console.log("Dancer edited successfully");

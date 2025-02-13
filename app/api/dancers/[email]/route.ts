@@ -15,10 +15,22 @@ export async function GET(request: NextRequest, { params }){
 export async function PUT(request: NextRequest, { params }) {
   const { email } = params; 
   const {
-    newName: name
-    // more fields
+    newName: name,
+    newResidenceCountry: residenceCountry,
+    newSolanaAddress: solanaAddress,
+    newBirthCountry: birthCountry,
+    newDescription: description,
   } = await request.json();
   await connectMongoDB();
-  await Dancer.findOneAndUpdate({ email: email}, { name: name });
+  await Dancer.findOneAndUpdate(
+    { email: email},
+    {
+      name,
+      residenceCountry,
+      solanaAddress,
+      birthCountry,
+      description
+    }
+  );
   return NextResponse.json({ message: "Dancer updated" }, { status: 200 });
 }

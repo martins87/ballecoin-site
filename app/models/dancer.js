@@ -1,24 +1,16 @@
 import mongoose, { Schema } from "mongoose";
 
-// name
-// email
-// countryOfResidence
-// countryOfBirth
-// solAddress
-// birthdate
-// description
-// instagram
-// tiktok
-
 const dancerSchema = new Schema(
   {
     name: String,
     email: String,
-    // countryOfResidence: String,
-    // countryOfBirth: String,
-    // solAddress: String,
+    residenceCountry: String,
+    solanaAddress: String,
+    birthCountry: String,
     // birthdate: String,
-    // description: String,
+    description: String,
+    // instagram: String,
+    // tiktok: String,
   },
   { timestamps: true }
 );
