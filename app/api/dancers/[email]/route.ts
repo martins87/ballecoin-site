@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import connectMongoDB from "../../../lib/db";
 import Dancer from '../../../models/dancer';
 
+// @ts-expect-error:next-line
 export async function GET(request: NextRequest, { params }){
   const { email } = params;
   await connectMongoDB();
