@@ -84,14 +84,21 @@ export default function Footer() {
                 width={24}
                 className="text-gray-600 hover:cursor-pointer hover:scale-125 hover:text-gray-900 transition-all duration-300 ease-in-out"
                 src={Telegram}
-                alt="facebook icon"
+                alt="telegram icon"
               />
-              <Image
-                width={24}
-                className="text-gray-600 hover:cursor-pointer hover:scale-125 hover:text-gray-900 transition-all duration-300 ease-in-out"
-                src={X}
-                alt="twitter icon"
-              />
+              <Link
+                className="flex items-center justify-between gap-x-2"
+                href="https://x.com/ballecoin"
+                target="_blank"
+                rel="noopener"
+              >
+                <Image
+                  width={24}
+                  className="text-gray-600 hover:cursor-pointer hover:scale-125 hover:text-gray-900 transition-all duration-300 ease-in-out"
+                  src={X}
+                  alt="x icon"
+                />
+              </Link>
               <Image
                 width={24}
                 className="text-gray-600 hover:cursor-pointer hover:scale-125 hover:text-gray-900 transition-all duration-300 ease-in-out"
