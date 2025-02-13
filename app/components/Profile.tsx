@@ -42,13 +42,13 @@ export default function ProfilePage() {
         <form className="w-full tablet:w-3/5 space-y-8">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <Typography className="text-sm" weight="500">
+              <Typography className="text-base" weight="500" font="inter">
                 Name
               </Typography>
               <Input className="rounded-[9px]" placeholder="Enter your name" />
             </div>
             <div className="space-y-2">
-              <Typography className="text-sm" weight="500">
+              <Typography className="text-base" weight="500" font="inter">
                 Email
               </Typography>
               <Input
@@ -58,7 +58,7 @@ export default function ProfilePage() {
               />
             </div>
             <div className="space-y-2">
-              <Typography className="text-sm" weight="500">
+              <Typography className="text-base" weight="500" font="inter">
                 Current Country of Residence
               </Typography>
               <Input
@@ -67,7 +67,7 @@ export default function ProfilePage() {
               />
             </div>
             <div className="space-y-2">
-              <Typography className="text-sm" weight="500">
+              <Typography className="text-base" weight="500" font="inter">
                 Solana Address
               </Typography>
               <Input
@@ -76,7 +76,7 @@ export default function ProfilePage() {
               />
             </div>
             <div className="space-y-2">
-              <Typography className="text-sm" weight="500">
+              <Typography className="text-base" weight="500" font="inter">
                 Country of Birth
               </Typography>
               <Input
@@ -85,7 +85,7 @@ export default function ProfilePage() {
               />
             </div>
             <div className="space-y-2">
-              <Typography className="text-sm" weight="500">
+              <Typography className="text-base" weight="500" font="inter">
                 Date of Birth
               </Typography>
               <Input className="rounded-[9px]" type="date" />
@@ -93,7 +93,7 @@ export default function ProfilePage() {
           </div>
 
           <div className="space-y-2">
-            <Typography className="text-sm" weight="500">
+            <Typography className="text-base" weight="500" font="inter">
               Description
             </Typography>
             <Textarea
