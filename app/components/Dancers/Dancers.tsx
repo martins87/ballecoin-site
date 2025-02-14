@@ -35,7 +35,9 @@ const Dancers: FC<DancersProps> = ({ heroSection }) => {
     getData();
   }, [heroSection, isMobile]);
 
-  const handleClick = (dancerId: string) => {
+  const handleClick = (
+    // dancerId: string
+  ) => {
     // router.push(`/dancers/${dancerId}`);
   }
 
