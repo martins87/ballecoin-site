@@ -28,9 +28,24 @@ export const getDancers = async () => {
   }
 }
 
+export const getDancerById = async (id: string) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/dancers/${id}`, {
+      cache: 'no-store'
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch dancer");
+    }
+    return response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export const getDancerByEmail = async (email: string) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/dancers/${email}`, {
+    const response = await fetch(`${API_BASE_URL}/api/dancers/email/${email}`, {
       cache: 'no-store'
     });
 

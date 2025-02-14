@@ -6,6 +6,7 @@ import { twMerge } from "tailwind-merge";
 import CenteredElement from "../ui/CenteredElement";
 import Typography from "../Typography";
 import ballerina from "../../assets/images/ballerina-0.png";
+// import user from "../../assets/images/user.png";
 
 type DancerCardProps = {
   index: number;
@@ -15,7 +16,6 @@ type DancerCardProps = {
 };
 
 const DancerCard: FC<DancerCardProps> = ({ index, name, description, img }) => {
-  console.log("dancer", {name, img});
   return (
     <CenteredElement
       className={twMerge(
@@ -29,10 +29,10 @@ const DancerCard: FC<DancerCardProps> = ({ index, name, description, img }) => {
         width={56}
         height={56}
         className="flex flex-1 w-full h-[60%] rounded-xl object-cover"
-        // src={img}
         src={img === "" ? ballerina : img}
-        // src={img === "" ? "https://images.unsplash.com/photo-1568481996616-dc7f8ff0bab9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" : img}
         alt="dancer"
+        priority
+        unoptimized={typeof img === "string"}
       />
       <Typography className="mr-auto" weight="700">
         {name}

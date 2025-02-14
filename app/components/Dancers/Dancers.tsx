@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import CenteredElement from "../ui/CenteredElement";
 import DancerCard from "./DancerCard";
@@ -16,7 +16,7 @@ type DancersProps = {
 };
 
 const Dancers: FC<DancersProps> = ({ heroSection }) => {
-  // const router = useRouter();
+  const router = useRouter();
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
   const [dancers, setDancers] = useState<Dancer[]>([]);
   const [numOfItems, setNumOfItems] = useState(3);
@@ -35,9 +35,9 @@ const Dancers: FC<DancersProps> = ({ heroSection }) => {
     getData();
   }, [heroSection, isMobile]);
 
-  // const handleClick = (dancerId: string) => {
-  //   router.push(`/dancers/${dancerId}`);
-  // }
+  const handleClick = (dancerId: string) => {
+    router.push(`/dancers/${dancerId}`);
+  }
 
   return (
     <>
@@ -69,17 +69,15 @@ const Dancers: FC<DancersProps> = ({ heroSection }) => {
           className="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 tablet:grid-cols-4 gap-2 mb-10"
           >
           {dancers.slice(0, numOfItems).map((dancer: Dancer, index: number) => (
-            // <div key={index} onClick={() => handleClick(dancer._id)}>
-            <div key={index}>
-            {/* <div key={index} onClick={() => handleClick(dancer.id)}> */}
-            <DancerCard
-              index={index}
-              // key={index}
-              name={dancer.name!}
-              description={dancer.description!}
-              img={dancer.picture}
-              />
-              </div>
+            <div key={index} onClick={() => handleClick(dancer._id)}>
+              <DancerCard
+                index={index}
+                // key={index}
+                name={dancer.name!}
+                description={dancer.description!}
+                img={dancer.picture}
+                />
+            </div>
           ))}
         </CenteredElement>)
       }
