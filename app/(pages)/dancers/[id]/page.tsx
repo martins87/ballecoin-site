@@ -46,21 +46,21 @@ const DancerPage = ({ params }) => {
         <Typography className='text-5xl' weight='600'>{name}</Typography>
       </CenteredElement>
       <CenteredElement
-        className="gap-x-10 p-4 mb-20 bg-[#FFFFFF] [box-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] rounded-[15px]"
+        className="flex-col md:flex-row gap-x-10 gap-y-10 p-8 mb-20 bg-[#FFFFFF] [box-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] rounded-[15px]"
         items='start'
       >
-        <CenteredElement className='w-1/2'>
+        <CenteredElement className='w-full md:w-1/2'>
           <Image
             width={52}
             height={52}
-            className="w-1/2 rounded-lg overflow-hidden hover:cursor-pointer"
+            className="w-full rounded-lg overflow-hidden hover:cursor-pointer object-cover"
             src={picture || User}
             alt="Profile img"
             priority
             unoptimized={typeof picture === "string"}
             />
         </CenteredElement>
-        <CenteredElement className='w-1/2 gap-y-4' direction="col" items='start'>
+        <CenteredElement className='w-full md:w-1/2 gap-y-4' direction="col" items='start'>
           <CenteredElement className='gap-x-2' justify='start'>
             <Typography weight='700'>Birth country:</Typography>
             <Typography>{birthCountry}</Typography>
@@ -71,7 +71,7 @@ const DancerPage = ({ params }) => {
           </CenteredElement>
           <CenteredElement className='gap-x-2' direction='col' items='start' justify='start'>
             <Typography weight='700'>SOLANA address:</Typography>
-            <Typography>{solanaAddress}</Typography>
+            <Typography className='text-xs md:text-base'>{solanaAddress}</Typography>
           </CenteredElement>
           <CenteredElement className='gap-x-2' justify='start'>
             <Typography weight='700'>Instagram:</Typography>
