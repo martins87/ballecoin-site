@@ -63,7 +63,7 @@ const Dancers: FC<DancersProps> = ({ heroSection }) => {
       </div>
       {loading ? 
         (<CenteredElement className="mb-20">
-          <Typography>Loading dancers...</Typography>
+          <Typography className="text-xl">Loading dancers...</Typography>
         </CenteredElement>)
         : (<CenteredElement
           className="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 tablet:grid-cols-4 gap-2 mb-10"

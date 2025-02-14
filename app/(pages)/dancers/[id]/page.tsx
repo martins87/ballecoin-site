@@ -11,6 +11,7 @@ import User from "../../../assets/images/user.png";
 
 // @ts-expect-error:next-line
 const DancerPage = ({ params }) => {
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState<string>("");
   // const [email, setEmail] = useState<string>("");
   const [residenceCountry, setResidenceCountry] = useState<string>("");
@@ -23,7 +24,9 @@ const DancerPage = ({ params }) => {
 
   useEffect(() => {
     const getDancer = async () => {
+      setLoading(true);
       const dancer = await getDancerById(params.id);
+      setLoading(false);
 
       console.log("dancer gotten from database", dancer);
       setName(dancer.name);
@@ -45,48 +48,54 @@ const DancerPage = ({ params }) => {
       <CenteredElement className='my-14'>
         <Typography className='text-5xl' weight='600'>{name}</Typography>
       </CenteredElement>
-      <CenteredElement
-        className="flex-col md:flex-row gap-x-10 gap-y-10 p-8 mb-20 bg-[#FFFFFF] [box-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] rounded-[15px]"
-        items='start'
-      >
-        <CenteredElement className='w-full md:w-1/2'>
-          <Image
-            width={52}
-            height={52}
-            className="w-full rounded-lg overflow-hidden hover:cursor-pointer object-cover"
-            src={picture || User}
-            alt="Profile img"
-            priority
-            unoptimized={typeof picture === "string"}
-            />
+      {loading ? (
+        <CenteredElement className="mb-20">
+          <Typography className='text-xl'>Loading dancer...</Typography>
         </CenteredElement>
-        <CenteredElement className='w-full md:w-1/2 gap-y-4' direction="col" items='start'>
-          <CenteredElement className='gap-x-2' justify='start'>
-            <Typography weight='700'>Birth country:</Typography>
-            <Typography>{birthCountry}</Typography>
+      ) : (
+        <CenteredElement
+          className="flex-col md:flex-row gap-x-10 gap-y-10 p-8 mb-20 bg-[#FFFFFF] [box-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] rounded-[15px]"
+          items='start'
+        >
+          <CenteredElement className='w-full md:w-1/2'>
+            <Image
+              width={52}
+              height={52}
+              className="w-full rounded-lg overflow-hidden hover:cursor-pointer object-cover"
+              src={picture || User}
+              alt="Profile img"
+              priority
+              unoptimized={typeof picture === "string"}
+              />
           </CenteredElement>
-          <CenteredElement className='gap-x-2' justify='start'>
-            <Typography weight='700'>Residence country:</Typography>
-            <Typography>{residenceCountry}</Typography>
-          </CenteredElement>
-          <CenteredElement className='gap-x-2' direction='col' items='start' justify='start'>
-            <Typography weight='700'>SOLANA address:</Typography>
-            <Typography className='text-xs md:text-base'>{solanaAddress}</Typography>
-          </CenteredElement>
-          <CenteredElement className='gap-x-2' justify='start'>
-            <Typography weight='700'>Instagram:</Typography>
-            <Typography>{instagram}</Typography>
-          </CenteredElement>
-          <CenteredElement className='gap-x-2' justify='start'>
-            <Typography weight='700'>Tiktok:</Typography>
-            <Typography>{tiktok}</Typography>
-          </CenteredElement>
-          <CenteredElement className='gap-x-2' direction='col' items='start' justify='start'>
-            <Typography weight='700'>Description:</Typography>
-            <Typography>{description}</Typography>
+          <CenteredElement className='w-full md:w-1/2 gap-y-4' direction="col" items='start'>
+            <CenteredElement className='gap-x-2' justify='start'>
+              <Typography weight='700'>Birth country:</Typography>
+              <Typography>{birthCountry}</Typography>
+            </CenteredElement>
+            <CenteredElement className='gap-x-2' justify='start'>
+              <Typography weight='700'>Residence country:</Typography>
+              <Typography>{residenceCountry}</Typography>
+            </CenteredElement>
+            <CenteredElement className='gap-x-2' direction='col' items='start' justify='start'>
+              <Typography weight='700'>SOLANA address:</Typography>
+              <Typography className='text-xs md:text-base'>{solanaAddress}</Typography>
+            </CenteredElement>
+            <CenteredElement className='gap-x-2' justify='start'>
+              <Typography weight='700'>Instagram:</Typography>
+              <Typography>{instagram}</Typography>
+            </CenteredElement>
+            <CenteredElement className='gap-x-2' justify='start'>
+              <Typography weight='700'>Tiktok:</Typography>
+              <Typography>{tiktok}</Typography>
+            </CenteredElement>
+            <CenteredElement className='gap-x-2' direction='col' items='start' justify='start'>
+              <Typography weight='700'>Description:</Typography>
+              <Typography>{description}</Typography>
+            </CenteredElement>
           </CenteredElement>
         </CenteredElement>
-      </CenteredElement>
+      )}
     </Container>
   )
 }
