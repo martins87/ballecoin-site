@@ -80,12 +80,19 @@ export default function Footer() {
               Social Media
             </Typography>
             <div className="flex gap-x-4">
-              <Image
-                width={24}
-                className="text-gray-600 hover:cursor-pointer hover:scale-125 hover:text-gray-900 transition-all duration-300 ease-in-out"
-                src={Telegram}
-                alt="telegram icon"
-              />
+              <Link
+                className="flex items-center justify-between gap-x-2"
+                href="https://t.me/+C-7QmNbj5vtlM2Rh"
+                target="_blank"
+                rel="noopener"
+              >
+                <Image
+                  width={24}
+                  className="text-gray-600 hover:cursor-pointer hover:scale-125 hover:text-gray-900 transition-all duration-300 ease-in-out"
+                  src={Telegram}
+                  alt="telegram icon"
+                />
+              </Link>
               <Link
                 className="flex items-center justify-between gap-x-2"
                 href="https://x.com/ballecoin"
