@@ -1,11 +1,14 @@
 "use client";
 
+import { FC, useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
+
 import CenteredElement from "../ui/CenteredElement";
 import DancerCard from "./DancerCard";
 import Typography from "../Typography";
-import { dancers } from "../../constants/dancers";
-import { FC } from "react";
-import { useMediaQuery } from "react-responsive";
+import { getDancers } from "@/app/lib/db";
+import { Dancer } from "@/app/types/dancer";
+// import { dancers } from "../../constants/dancers";
 
 type DancersProps = {
   heroSection?: boolean;
@@ -13,7 +16,18 @@ type DancersProps = {
 
 const Dancers: FC<DancersProps> = ({ heroSection }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
-  const numOfItems = isMobile && !!heroSection ? 3 : dancers.length;
+  const [dancers, setDancers] = useState<Dancer[]>([]);
+  const [numOfItems, setNumOfItems] = useState(3);
+
+  useEffect(() => {
+    const getData = async () => {
+      const users = await getDancers();
+      setDancers(users);
+      setNumOfItems(state => isMobile && !!heroSection ? state : users.length)
+    };
+
+    getData();
+  }, [heroSection, isMobile]);
 
   return (
     <>
@@ -38,13 +52,13 @@ const Dancers: FC<DancersProps> = ({ heroSection }) => {
         </Typography>
       </div>
       <CenteredElement className="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 tablet:grid-cols-4 gap-2 mb-10">
-        {dancers.slice(0, numOfItems).map((dancer, index) => (
+        {dancers.slice(0, numOfItems).map((dancer: Dancer, index: number) => (
           <DancerCard
             index={index}
             key={index}
-            name={dancer.name}
-            description={dancer.description}
-            img={dancer.img}
+            name={dancer.name!}
+            description={dancer.description!}
+            img={dancer.picture}
           />
         ))}
       </CenteredElement>

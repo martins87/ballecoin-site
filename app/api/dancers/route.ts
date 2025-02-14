@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   await connectMongoDB();
   const dancers = await Dancer.find();
-  return NextResponse.json({ dancers })
+  return NextResponse.json(dancers)
 }
 
 export async function DELETE(request: NextRequest) {

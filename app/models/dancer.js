@@ -11,6 +11,7 @@ const dancerSchema = new Schema(
     description: String,
     instagram: String,
     tiktok: String,
+    picture: String,
   },
   { timestamps: true }
 );

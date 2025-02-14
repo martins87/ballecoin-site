@@ -13,6 +13,21 @@ const connectMongoDB = async () => {
 
 export default connectMongoDB;
 
+export const getDancers = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/dancers`, {
+      cache: 'no-store'
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch dancers");
+    }
+    return response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export const getDancerByEmail = async (email: string) => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/dancers/${email}`, {
@@ -57,6 +72,7 @@ export const updateDancer = async (
   description: string,
   instagram: string,
   tiktok: string,
+  picture: string,
 ) => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/dancers/${email}`, {
@@ -71,6 +87,7 @@ export const updateDancer = async (
         newDescription: description,
         newInstagram: instagram,
         newTiktok: tiktok,
+        newPicture: picture
       })
     });
 

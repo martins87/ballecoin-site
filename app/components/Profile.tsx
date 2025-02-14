@@ -10,6 +10,8 @@ import Typography from "./Typography";
 import Button from "./ui/Button";
 import Container from "./ui/Container";
 import { getDancerByEmail, updateDancer } from "../lib/db";
+import Ballerina from "../assets/images/anna-pavlova.jpg";
+import CenteredElement from "./ui/CenteredElement";
 
 export default function ProfilePage() {
   const { data: session } = useSession();
@@ -22,6 +24,8 @@ export default function ProfilePage() {
   const [description, setDescription] = useState<string>("");
   const [instagram, setInstagram] = useState<string>("");
   const [tiktok, setTiktok] = useState<string>("");
+  const [picture, setPicture] = useState<string>("");
+  // const [imgUploaded, setImgUploaded] = useState<boolean>(false);
 
   useEffect(() => {
     const getDancer = async () => {
@@ -42,6 +46,11 @@ export default function ProfilePage() {
         setDescription(dancer.description);
         setInstagram(dancer.instagram);
         setTiktok(dancer.tiktok);
+        setPicture(dancer.picture);
+
+        if (dancer.picture === "") {
+          console.log("No image uploaded");
+        }
       }
     };
 
@@ -58,7 +67,8 @@ export default function ProfilePage() {
         birthCountry,
         description,
         instagram,
-        tiktok
+        tiktok,
+        picture
       );
       console.log("Dancer updated successfully:", updatedDancer);
       alert("Dancer updated successfully");
@@ -67,26 +77,46 @@ export default function ProfilePage() {
     }
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files![0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      console.log("reader.result", reader.result);
+      setPicture(reader.result as string);
+    };
+
+    reader.readAsDataURL(file);
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 py-14">
       <Container className="bg-white rounded-xl shadow-sm p-8">
-        <div className="flex items-center gap-6 mb-8">
+        <CenteredElement className="w-full tablet:w-3/5 gap-0 mb-8" justify="around">
           <Image
-            width={128}
-            height={128}
-            className="rounded-full"
-            src={profileImage}
+            width={52}
+            height={52}
+            className="w-1/2 rounded-lg overflow-hidden hover:cursor-pointer"
+            src={picture || Ballerina}
             alt="Profile img"
             priority
             unoptimized={typeof profileImage === "string"}
-          />
-          <Typography className="text-3xl" weight="700">
-            Profile
-          </Typography>
-        </div>
+            />
+          <CenteredElement className="w-1/2">
+            <Typography className="text-3xl" weight="700">
+              Profile
+            </Typography>
+          </CenteredElement>
+        </CenteredElement>
+        <input
+          className="w-full tablet:w-3/5 mb-6"
+          type="file"
+          onChange={handleFileChange}
+        />
 
         <form className="w-full tablet:w-3/5 space-y-8">
           <div className="grid md:grid-cols-2 gap-6">
+            
             <div className="space-y-2">
               <Typography className="text-base" weight="500" font="inter">
                 Name
