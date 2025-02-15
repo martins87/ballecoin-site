@@ -28,7 +28,7 @@ export default function Join() {
             Since BalleCoin is on the Solana network, you will need a small amount of SOL to cover transaction fees.
           </p>
           <ul className="list-disc pl-5 mb-4 text-black dark:text-black text-xs md:text-sm">
-            <li>Click the "Deposit" button in Phantom</li>
+            <li>Click the &quot;Deposit&quot; button in Phantom</li>
             <li>Choose a method to add SOL (direct purchase via card or transfer from another wallet)</li>
             <li>Wait until the balance is displayed</li>
           </ul>
@@ -43,7 +43,7 @@ export default function Join() {
             To view and manage BalleCoin in Phantom, follow these steps:
           </p>
           <ul className="list-disc pl-5 mb-4 text-black dark:text-black text-xs md:text-sm">
-            <li>Open the Phantom Wallet and click "+ Add/Remove Token"</li>
+            <li>Open the Phantom Wallet and click &quot;+ Add/Remove Token&quot;</li>
             <li>
               Search for BalleCoin in the list or manually enter the contract (provided on the official BalleCoin page)
             </li>
@@ -59,7 +59,7 @@ export default function Join() {
         <div>
           <ul className="list-disc pl-5 mb-4 text-black dark:text-black text-xs md:text-sm">
             <li>Visit the official BalleCoin liquidity pool link on Radix</li>
-            <li>Connect your Phantom Wallet to Radix by clicking "Connect Wallet"</li>
+            <li>Connect your Phantom Wallet to Radix by clicking &quot;Connect Wallet&quot;</li>
             <li>Authorize the connection with your wallet</li>          </ul>
           <p className="text-black text-xs md:text-sm font-normal mb-4">
             Note: Ensure the website is legitimate before connecting your wallet to avoid scams.
@@ -74,7 +74,7 @@ export default function Join() {
         <div>
           <ul className="list-disc pl-5 mb-4 text-black dark:text-black text-xs md:text-sm">
             <li>The official artist page will display a list of young talents you can support</li>
-            <li>Select your desired artist and click "Donate with BalleCoin"</li>
+            <li>Select your desired artist and click &quot;Donate with BalleCoin&quot;</li>
           </ul>
 
         </div>
@@ -84,10 +84,10 @@ export default function Join() {
       title: "6. Send the Donation in BalleCoin",      content: (
         <div>
           <ul className="list-disc pl-5 mb-4 text-black dark:text-black text-xs md:text-sm">
-            <li>After clicking "Donate," you will be redirected to a payment screen</li>
+            <li>After clicking &quot;Donate,&quot; you will be redirected to a payment screen</li>
             <li>Enter the amount of BalleCoin you wish to donate</li>
-            <li>Click "Confirm Donation"</li>
-            <li>Phantom Wallet will prompt you for confirmation. Click "Approve" to complete the transaction</li>
+            <li>Click &quot;Confirm Donation&quot;</li>
+            <li>Phantom Wallet will prompt you for confirmation. Click &quot;Approve&quot; to complete the transaction</li>
           </ul>
 
         </div>
@@ -111,7 +111,7 @@ export default function Join() {
       content: (
         <div>
           <p className="text-black text-xs md:text-sm font-normal mb-4">
-            You can opt to receive updates about the progress of sponsored artists. Check the "Receive Updates" option
+            You can opt to receive updates about the progress of sponsored artists. Check the &quot;Receive Updates&quot; option
             to stay informed.
           </p>
 
