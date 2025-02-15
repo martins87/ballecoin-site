@@ -5,7 +5,8 @@ import { twMerge } from "tailwind-merge";
 
 import CenteredElement from "../ui/CenteredElement";
 import Typography from "../Typography";
-import ballerina from "../../assets/images/ballerina-0.png";
+// import ballerina from "../../assets/images/ballerina-0.png";
+import fallback from "../../assets/images/fallback.jpg";
 // import user from "../../assets/images/user.png";
 
 type DancerCardProps = {
@@ -29,7 +30,8 @@ const DancerCard: FC<DancerCardProps> = ({ index, name, description, img }) => {
         width={56}
         height={56}
         className="flex flex-1 w-full h-[60%] rounded-xl object-cover"
-        src={img === "" ? ballerina : img}
+        // src={img === "" ? ballerina : img}
+        src={img === "" ? fallback : img}
         alt="dancer"
         priority
         unoptimized={typeof img === "string"}
