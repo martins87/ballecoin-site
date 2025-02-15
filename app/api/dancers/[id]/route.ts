@@ -15,7 +15,9 @@ export async function GET(request: NextRequest, { params }){
 export async function PUT(request: NextRequest, { params }) {
   const { id } = params; 
   const {
+    // id,
     newName: name,
+    // email,
     newResidenceCountry: residenceCountry,
     newSolanaAddress: solanaAddress,
     newBirthCountry: birthCountry,

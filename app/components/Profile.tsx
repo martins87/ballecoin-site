@@ -10,12 +10,13 @@ import Typography from "./Typography";
 import Button from "./ui/Button";
 import Container from "./ui/Container";
 import { getDancerByEmail, updateDancer } from "../lib/db";
-import Ballerina from "../assets/images/anna-pavlova.jpg";
 import CenteredElement from "./ui/CenteredElement";
+import fallback from "../assets/images/fallback.jpg";
 
 export default function ProfilePage() {
   const { data: session } = useSession();
   const [profileImage, setProfileImage] = useState<string>("");
+  const [id, setId] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [residenceCountry, setResidenceCountry] = useState<string>("");
@@ -25,7 +26,7 @@ export default function ProfilePage() {
   const [instagram, setInstagram] = useState<string>("");
   const [tiktok, setTiktok] = useState<string>("");
   const [picture, setPicture] = useState<string>("");
-  // const [imgUploaded, setImgUploaded] = useState<boolean>(false);
+  // const [isEditing, setIsEditing] = useState<boolean>(false);
 
   useEffect(() => {
     const getDancer = async () => {
@@ -38,6 +39,7 @@ export default function ProfilePage() {
 
         console.log("dancer gotten from database", dancer);
         setProfileImage(sessionImage!);
+        setId(dancer._id);
         setName(dancer.name);
         setEmail(dancer.email);
         setResidenceCountry(dancer.residenceCountry);
@@ -57,9 +59,12 @@ export default function ProfilePage() {
     getDancer();
   }, [session]);
 
+  // const handleEdit = () => setIsEditing(!isEditing);
+
   const handleSave = async () => {
     try {
       const updatedDancer = await updateDancer(
+        id,
         name,
         email,
         residenceCountry,
@@ -70,6 +75,7 @@ export default function ProfilePage() {
         tiktok,
         picture
       );
+
       console.log("Dancer updated successfully:", updatedDancer);
       alert("Dancer updated successfully");
     } catch (error) {
@@ -97,7 +103,8 @@ export default function ProfilePage() {
             width={52}
             height={52}
             className="w-1/2 rounded-lg overflow-hidden hover:cursor-pointer"
-            src={picture || Ballerina}
+            // src={picture || Ballerina}
+            src={picture || fallback}
             alt="Profile img"
             priority
             unoptimized={typeof profileImage === "string"}
@@ -112,11 +119,11 @@ export default function ProfilePage() {
           className="w-full tablet:w-3/5 mb-6"
           type="file"
           onChange={handleFileChange}
+          // disabled={!isEditing}
         />
 
         <form className="w-full tablet:w-3/5 space-y-8">
           <div className="grid md:grid-cols-2 gap-6">
-            
             <div className="space-y-2">
               <Typography className="text-base" weight="500" font="inter">
                 Name
@@ -126,6 +133,7 @@ export default function ProfilePage() {
                 placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                // disabled={!isEditing}
               />
             </div>
             <div className="space-y-2">
@@ -149,6 +157,7 @@ export default function ProfilePage() {
                 placeholder="Enter your current country"
                 value={residenceCountry}
                 onChange={(e) => setResidenceCountry(e.target.value)}
+                // disabled={!isEditing}
               />
             </div>
             <div className="space-y-2">
@@ -160,6 +169,7 @@ export default function ProfilePage() {
                 placeholder="Enter your Solana address"
                 value={solanaAddress}
                 onChange={(e) => setSolanaAddress(e.target.value)}
+                // disabled={!isEditing}
               />
             </div>
             <div className="space-y-2">
@@ -171,6 +181,7 @@ export default function ProfilePage() {
                 placeholder="Enter your birth country"
                 value={birthCountry}
                 onChange={(e) => setBirthCountry(e.target.value)}
+                // disabled={!isEditing}
               />
             </div>
             <div className="space-y-2">
@@ -188,6 +199,7 @@ export default function ProfilePage() {
                 placeholder="Enter your Instagram username"
                 value={instagram}
                 onChange={(e) => setInstagram(e.target.value)}
+                // disabled={!isEditing}
               />
             </div>
             <div className="space-y-2">
@@ -199,6 +211,7 @@ export default function ProfilePage() {
                 placeholder="Enter your Tiktok username"
                 value={tiktok}
                 onChange={(e) => setTiktok(e.target.value)}
+                // disabled={!isEditing}
               />
             </div>
           </div>
@@ -212,19 +225,21 @@ export default function ProfilePage() {
               placeholder="Write your bio here..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              // disabled={!isEditing}
             />
           </div>
 
           <div className="flex gap-4 pt-4">
-            <Button
+            {/* <Button
               className="px-8 py-2 bg-gradient-to-r from-[#F2D356] to-[#DC6033] hover:opacity-90 transition-opacity"
               label="Edit"
-              // onClick={}
-            />
+              onClick={handleEdit}
+              /> */}
             <Button
               className="px-8 py-2 bg-gradient-to-r from-[#5656F2] to-[#3333DC] hover:opacity-90 transition-opacity"
               label="Save"
               onClick={handleSave}
+              // disabled={!isEditing}
             />
           </div>
         </form>
