@@ -69,7 +69,9 @@ const Dancers: FC<DancersProps> = ({ heroSection }) => {
           className="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 tablet:grid-cols-4 gap-2 mb-10"
           >
           {dancers
-            .filter((dancer: Dancer) => dancer.email !== "martinsda@gmail.com")
+            .filter((dancer: Dancer) => {
+              return dancer.email !== "martinsda@gmail.com" && dancer.email !== "cristiansolutchak@gmail.com"
+            })
             .slice(0, numOfItems).map((dancer: Dancer, index: number) => (
             <div key={index} onClick={() => handleClick(dancer._id)}>
               <DancerCard
