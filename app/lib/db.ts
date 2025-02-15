@@ -63,7 +63,17 @@ export const addDancer = async (name: string, email: string) => {
     const response = await fetch(`${API_BASE_URL}/api/dancers/`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ name, email })
+      body: JSON.stringify({
+        name,
+        email,
+        residenceCountry: "",
+        solanaAddress: "",
+        birthCountry: "",
+        description: "",
+        instagram: "",
+        tiktok: "",
+        picture: ""
+      })
     });
 
     if (!response.ok) {
