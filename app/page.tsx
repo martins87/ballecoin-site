@@ -4,6 +4,7 @@ import WhatSection from "./components/WhatSection";
 import WhySection from "./components/WhySection";
 import HowSection from "./components/HowSection";
 import Dancers from "./components/Dancers";
+import Roadmap from "./components/RoadMap/Roadmap";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
       <WhatSection />
       <WhySection />
       <HowSection />
-      <Dancers />
+      <Dancers />   
+      <Roadmap/> como dar o nome para o comit pois adicionei isso
     </main>
   );
 }
