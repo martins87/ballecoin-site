@@ -44,7 +44,7 @@ export default function Roadmap() {
             </Typography>
             <div className="flex flex-col md:flex-row justify-between w-full max-w-6xl">
                 {steps.map((step, index) => (
-                    <div key={index} className="flex flex-col items-center mb-8 md:mb-0 bg-white py-6 px-2 mx-2 shadow-lg rounded-2xl">
+                    <div key={index} className="flex flex-col items-center mb-8 md:mb-0 bg-white py-6 px-2 mx-2 shadow-lg rounded-2xl md:w-1/3">
                         <div className="relative">
                             <div
                                 className={`w-24 h-24 rounded-full bg-gradient-to-r ${gradients[index]} flex items-center justify-center shadow-lg`}
@@ -64,12 +64,13 @@ export default function Roadmap() {
                         <Typography className="text-[#3A82F7] font-bold mt-4 text-center" weight="500">
                             {step.title}
                         </Typography>
-                        <Typography className="text-gray-600 text-center mt-2 max-w-[200px]e" weight="500">
+                        <Typography className="text-gray-600 text-center mt-2 max-w-[200px]" weight="500">
                             {step.description}
                         </Typography>
                     </div>
                 ))}
             </div>
+
         </div>
     )
 }
