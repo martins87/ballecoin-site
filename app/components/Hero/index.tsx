@@ -1,47 +1,38 @@
-"use client";
+import HeaderHero from "./HeaderHero";
+import HeroOrbitalNetwork from "./HeroOrbitalNetwork";
 
-import { redirect } from "next/navigation";
-import Image from "next/image";
 
-import Typography from "../Typography";
-import CenteredElement from "../ui/CenteredElement";
-import Container from "../ui/Container";
-import Button from "../ui/Button";
-import Ballerina from "../../assets/images/ballerina-bg-5.png";
-import CircularBackground from "./CircularBackground";
+const avatarList = [
+  "https://randomuser.me/api/portraits/women/1.jpg",
+  "https://randomuser.me/api/portraits/women/2.jpg",
+  "https://randomuser.me/api/portraits/women/3.jpg",
+  "https://randomuser.me/api/portraits/women/4.jpg",
+  "https://randomuser.me/api/portraits/women/5.jpg",
+  "https://randomuser.me/api/portraits/women/6.jpg",
+  "https://randomuser.me/api/portraits/women/7.jpg",
+  "https://randomuser.me/api/portraits/women/8.jpg",
+  "https://randomuser.me/api/portraits/women/9.jpg",
+  "https://randomuser.me/api/portraits/women/10.jpg",
+  "https://randomuser.me/api/portraits/men/1.jpg",
+  "https://randomuser.me/api/portraits/men/2.jpg",
+  "https://randomuser.me/api/portraits/men/3.jpg",
+  "https://randomuser.me/api/portraits/men/4.jpg",
+  "https://randomuser.me/api/portraits/men/5.jpg",
+  "https://randomuser.me/api/portraits/men/6.jpg",
+  "https://randomuser.me/api/portraits/men/7.jpg",
+  "https://randomuser.me/api/portraits/men/8.jpg",
+  "https://randomuser.me/api/portraits/men/9.jpg",
+  "https://randomuser.me/api/portraits/men/10.jpg",
+];
 
-const Hero = () => {
-  const handleClick = () => redirect("/about");
-
+const HeroSection = () => {
   return (
-    <CenteredElement className="h-[90vh] -mt-10 sm:mt-0">
-      <Container className="flex flex-row gap-x-4">
-        <CenteredElement
-          className="h-full gap-y-10"
-          direction="col"
-          items="start"
-        >
-          <Typography
-            className="text-5xl sm:text-6xl text-[#008CFF]"
-            weight="700"
-          >
-            Invest in art and sponsor dreams!
-          </Typography>
-          <Typography className="text-lg text-black/80">
-            The first cryptocurrency for supporting and donating to young dance
-            talents.
-          </Typography>
-          {/* <Button label="Comece Agora" /> */}
-          <Button label="Start Now" onClick={handleClick} />
-        </CenteredElement>
-        <CenteredElement className="hidden md:flex relative w-2/3 h-full">
-          <Image className="scale-90 z-20" src={Ballerina} alt="ballerina" />
-          <div className="absolute top-[27%] right-[15%] w-[65%] aspect-square bg-yellow-500/10 rounded-full z-0" />
-        </CenteredElement>
-      </Container>
-      <CircularBackground />
-    </CenteredElement>
+    <div>
+      <HeaderHero/>
+      <HeroOrbitalNetwork avatars={avatarList} />
+    </div>
   );
 };
 
-export default Hero;
+
+export default HeroSection;
