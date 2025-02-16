@@ -10,17 +10,18 @@ export default function LoginPage() {
   return (
     <Container className="min-h-[50vh] flex flex-col items-center justify-center p-4 my-10">
       <CenteredElement className="max-w-md gap-y-10" direction="col">
-        <CenteredElement className="gap-y-4" direction="col">
+        <CenteredElement className="gap-y-6 -mb-2" direction="col">
           <Image
             className="w-32 aspect-square"
             src={Logo}
             alt="ballecoin logo"
           />
           <Typography
-            className="text-3xl tracking-tight text-gray-900"
+            className="text-3xl tracking-normal text-gray-900 order-first"
             weight="700"
+            font="inter"
           >
-            Login
+            For dancers only
           </Typography>
         </CenteredElement>
         <GoogleLoginButton />

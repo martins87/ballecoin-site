@@ -71,7 +71,7 @@ const Navbar = () => {
             </Link>
           ) : (
             <Link href="/login">
-              <Button label="Login" rounded />
+              <Button label="Register" rounded />
             </Link>
           )}
         </CenteredElement>
