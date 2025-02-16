@@ -11,6 +11,7 @@ import Button from "./ui/Button";
 import Container from "./ui/Container";
 import { getDancerByEmail, updateDancer } from "../lib/db";
 import CenteredElement from "./ui/CenteredElement";
+import LoadingModal from "./LoadingModal";
 import fallback from "../assets/images/fallback.jpg";
 
 export default function ProfilePage() {
@@ -26,7 +27,7 @@ export default function ProfilePage() {
   const [instagram, setInstagram] = useState<string>("");
   const [tiktok, setTiktok] = useState<string>("");
   const [picture, setPicture] = useState<string>("");
-  // const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const getDancer = async () => {
@@ -35,7 +36,9 @@ export default function ProfilePage() {
         const sessionImage = session.user?.image;
         const sessionEmail = session.user?.email;
 
+        setLoading(true);
         const dancer = await getDancerByEmail(sessionEmail!);
+        setLoading(false);
 
         console.log("dancer gotten from database", dancer);
         setProfileImage(sessionImage!);
@@ -58,8 +61,6 @@ export default function ProfilePage() {
 
     getDancer();
   }, [session]);
-
-  // const handleEdit = () => setIsEditing(!isEditing);
 
   const handleSave = async () => {
     try {
@@ -96,154 +97,157 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-14">
-      <Container className="bg-white rounded-xl shadow-sm p-8">
-        <CenteredElement className="w-full tablet:w-3/5 gap-0 mb-8" justify="around">
-          <Image
-            width={52}
-            height={52}
-            className="w-1/2 rounded-lg overflow-hidden hover:cursor-pointer"
-            // src={picture || Ballerina}
-            src={picture || fallback}
-            alt="Profile img"
-            priority
-            unoptimized={typeof profileImage === "string"}
-            />
-          <CenteredElement className="w-1/2">
-            <Typography className="text-3xl" weight="700">
-              Profile
-            </Typography>
+    <>
+      <div className="min-h-screen bg-gray-50 py-14">
+        <Container className="bg-white rounded-xl shadow-sm p-8">
+          <CenteredElement className="w-full tablet:w-3/5 gap-0 mb-8" justify="around">
+            <Image
+              width={52}
+              height={52}
+              className="w-1/2 rounded-lg overflow-hidden hover:cursor-pointer"
+              // src={picture || Ballerina}
+              src={picture || fallback}
+              alt="Profile img"
+              priority
+              unoptimized={typeof profileImage === "string"}
+              />
+            <CenteredElement className="w-1/2">
+              <Typography className="text-3xl" weight="700">
+                Profile
+              </Typography>
+            </CenteredElement>
           </CenteredElement>
-        </CenteredElement>
-        <input
-          className="w-full tablet:w-3/5 mb-6"
-          type="file"
-          onChange={handleFileChange}
-          // disabled={!isEditing}
-        />
+          <input
+            className="w-full tablet:w-3/5 mb-6"
+            type="file"
+            onChange={handleFileChange}
+            // disabled={!isEditing}
+          />
 
-        <form className="w-full tablet:w-3/5 space-y-8">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <Typography className="text-base" weight="500" font="inter">
-                Name
-              </Typography>
-              <Input
-                className="rounded-[9px]"
-                placeholder="Enter your name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                // disabled={!isEditing}
-              />
+          <form className="w-full tablet:w-3/5 space-y-8">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <Typography className="text-base" weight="500" font="inter">
+                  Name
+                </Typography>
+                <Input
+                  className="rounded-[9px]"
+                  placeholder="Enter your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  // disabled={!isEditing}
+                />
+              </div>
+              <div className="space-y-2">
+                <Typography className="text-base" weight="500" font="inter">
+                  Email
+                </Typography>
+                <Input
+                  className="rounded-[9px]"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  disabled
+                />
+              </div>
+              <div className="space-y-2">
+                <Typography className="text-base" weight="500" font="inter">
+                  Current Country of Residence
+                </Typography>
+                <Input
+                  className="rounded-[9px]"
+                  placeholder="Enter your current country"
+                  value={residenceCountry}
+                  onChange={(e) => setResidenceCountry(e.target.value)}
+                  // disabled={!isEditing}
+                />
+              </div>
+              <div className="space-y-2">
+                <Typography className="text-base" weight="500" font="inter">
+                  Solana Address
+                </Typography>
+                <Input
+                  className="rounded-[9px]"
+                  placeholder="Enter your Solana address"
+                  value={solanaAddress}
+                  onChange={(e) => setSolanaAddress(e.target.value)}
+                  // disabled={!isEditing}
+                />
+              </div>
+              <div className="space-y-2">
+                <Typography className="text-base" weight="500" font="inter">
+                  Country of Birth
+                </Typography>
+                <Input
+                  className="rounded-[9px]"
+                  placeholder="Enter your birth country"
+                  value={birthCountry}
+                  onChange={(e) => setBirthCountry(e.target.value)}
+                  // disabled={!isEditing}
+                />
+              </div>
+              <div className="space-y-2">
+                <Typography className="text-base" weight="500" font="inter">
+                  Date of Birth
+                </Typography>
+                <Input className="rounded-[9px]" type="date" />
+              </div>
+              <div className="space-y-2">
+                <Typography className="text-base" weight="500" font="inter">
+                  Instagram
+                </Typography>
+                <Input
+                  className="rounded-[9px]"
+                  placeholder="Enter your Instagram username"
+                  value={instagram}
+                  onChange={(e) => setInstagram(e.target.value)}
+                  // disabled={!isEditing}
+                />
+              </div>
+              <div className="space-y-2">
+                <Typography className="text-base" weight="500" font="inter">
+                  Tiktok
+                </Typography>
+                <Input
+                  className="rounded-[9px]"
+                  placeholder="Enter your Tiktok username"
+                  value={tiktok}
+                  onChange={(e) => setTiktok(e.target.value)}
+                  // disabled={!isEditing}
+                />
+              </div>
             </div>
-            <div className="space-y-2">
-              <Typography className="text-base" weight="500" font="inter">
-                Email
-              </Typography>
-              <Input
-                className="rounded-[9px]"
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                disabled
-              />
-            </div>
-            <div className="space-y-2">
-              <Typography className="text-base" weight="500" font="inter">
-                Current Country of Residence
-              </Typography>
-              <Input
-                className="rounded-[9px]"
-                placeholder="Enter your current country"
-                value={residenceCountry}
-                onChange={(e) => setResidenceCountry(e.target.value)}
-                // disabled={!isEditing}
-              />
-            </div>
-            <div className="space-y-2">
-              <Typography className="text-base" weight="500" font="inter">
-                Solana Address
-              </Typography>
-              <Input
-                className="rounded-[9px]"
-                placeholder="Enter your Solana address"
-                value={solanaAddress}
-                onChange={(e) => setSolanaAddress(e.target.value)}
-                // disabled={!isEditing}
-              />
-            </div>
-            <div className="space-y-2">
-              <Typography className="text-base" weight="500" font="inter">
-                Country of Birth
-              </Typography>
-              <Input
-                className="rounded-[9px]"
-                placeholder="Enter your birth country"
-                value={birthCountry}
-                onChange={(e) => setBirthCountry(e.target.value)}
-                // disabled={!isEditing}
-              />
-            </div>
-            <div className="space-y-2">
-              <Typography className="text-base" weight="500" font="inter">
-                Date of Birth
-              </Typography>
-              <Input className="rounded-[9px]" type="date" />
-            </div>
-            <div className="space-y-2">
-              <Typography className="text-base" weight="500" font="inter">
-                Instagram
-              </Typography>
-              <Input
-                className="rounded-[9px]"
-                placeholder="Enter your Instagram username"
-                value={instagram}
-                onChange={(e) => setInstagram(e.target.value)}
-                // disabled={!isEditing}
-              />
-            </div>
-            <div className="space-y-2">
-              <Typography className="text-base" weight="500" font="inter">
-                Tiktok
-              </Typography>
-              <Input
-                className="rounded-[9px]"
-                placeholder="Enter your Tiktok username"
-                value={tiktok}
-                onChange={(e) => setTiktok(e.target.value)}
-                // disabled={!isEditing}
-              />
-            </div>
-          </div>
 
-          <div className="space-y-2">
-            <Typography className="text-base" weight="500" font="inter">
-              Description
-            </Typography>
-            <Textarea
-              className="rounded-[9px] min-h-[120px]"
-              placeholder="Write your bio here..."
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              // disabled={!isEditing}
-            />
-          </div>
+            <div className="space-y-2">
+              <Typography className="text-base" weight="500" font="inter">
+                Description
+              </Typography>
+              <Textarea
+                className="rounded-[9px] min-h-[120px]"
+                placeholder="Write your bio here..."
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                // disabled={!isEditing}
+              />
+            </div>
 
-          <div className="flex gap-4 pt-4">
-            {/* <Button
-              className="px-8 py-2 bg-gradient-to-r from-[#F2D356] to-[#DC6033] hover:opacity-90 transition-opacity"
-              label="Edit"
-              onClick={handleEdit}
-              /> */}
-            <Button
-              className="px-8 py-2 bg-gradient-to-r from-[#5656F2] to-[#3333DC] hover:opacity-90 transition-opacity"
-              label="Save"
-              onClick={handleSave}
-              // disabled={!isEditing}
-            />
-          </div>
-        </form>
-      </Container>
-    </div>
+            <div className="flex gap-4 pt-4">
+              {/* <Button
+                className="px-8 py-2 bg-gradient-to-r from-[#F2D356] to-[#DC6033] hover:opacity-90 transition-opacity"
+                label="Edit"
+                onClick={handleEdit}
+                /> */}
+              <Button
+                className="px-8 py-2 bg-gradient-to-r from-[#5656F2] to-[#3333DC] hover:opacity-90 transition-opacity"
+                label="Save"
+                onClick={handleSave}
+                // disabled={!isEditing}
+              />
+            </div>
+          </form>
+        </Container>
+      </div>
+      {loading && <LoadingModal text="Loading Profile..." />}
+    </>
   );
 }

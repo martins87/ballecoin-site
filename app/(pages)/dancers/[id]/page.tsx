@@ -7,6 +7,7 @@ import Typography from '@/app/components/Typography';
 import Container from '@/app/components/ui/Container';
 import { getDancerById } from '@/app/lib/db';
 import CenteredElement from '@/app/components/ui/CenteredElement';
+import LoadingModal from "@/app/components/LoadingModal";
 import User from "../../../assets/images/user.png";
 
 // @ts-expect-error:next-line
@@ -44,19 +45,15 @@ const DancerPage = ({ params }) => {
   }, []);
 
   return (
-    <Container>
-      <CenteredElement className='my-14'>
-        <Typography className='text-5xl' weight='600'>{name}</Typography>
-      </CenteredElement>
-      {loading ? (
-        <CenteredElement className="mb-20">
-          <Typography className='text-xl'>Loading dancer...</Typography>
+    <>
+      <Container>
+        <CenteredElement className='my-14'>
+          <Typography className='text-5xl' weight='600'>{name}</Typography>
         </CenteredElement>
-      ) : (
         <CenteredElement
           className="flex-col md:flex-row gap-x-10 gap-y-10 p-8 mb-20 bg-[#FFFFFF] [box-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] rounded-[15px]"
           items='start'
-        >
+          >
           <CenteredElement className='w-full md:w-1/2'>
             <Image
               width={52}
@@ -95,8 +92,9 @@ const DancerPage = ({ params }) => {
             </CenteredElement>
           </CenteredElement>
         </CenteredElement>
-      )}
-    </Container>
+      </Container>
+      {loading && <LoadingModal text="Loading Dancer..." />}
+    </>
   )
 }
 
