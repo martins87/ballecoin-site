@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   await connectMongoDB();
-  const dancers = await Dancer.find();
+  const dancers = await Dancer.find({ "picture": { "$ne": "" } });
   return NextResponse.json(dancers)
 }
 
