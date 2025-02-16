@@ -34,7 +34,7 @@ const gradients = [
 
 export default function Roadmap() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-20">
+    <div className="min-h-screen flex flex-col items-center justify-center py-20">
       <Container>
         <Typography className="text-4xl sm:text-6xl text-[#3A82F7]" weight="700">
           {/* Como fazer parte desse */}
