@@ -64,6 +64,8 @@ export default function ProfilePage() {
 
   const handleSave = async () => {
     try {
+
+      setLoading(true);
       const updatedDancer = await updateDancer(
         id,
         name,
@@ -76,9 +78,9 @@ export default function ProfilePage() {
         tiktok,
         picture
       );
+      setLoading(false);
 
       console.log("Dancer updated successfully:", updatedDancer);
-      alert("Dancer updated successfully");
     } catch (error) {
       console.error(error);
     }
@@ -247,7 +249,7 @@ export default function ProfilePage() {
           </form>
         </Container>
       </div>
-      {loading && <LoadingModal text="Loading Profile..." />}
+      {loading && <LoadingModal text="Loading..." />}
     </>
   );
 }
