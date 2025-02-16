@@ -18,7 +18,7 @@ const HowSection = () => {
   const handleToggle = () => setIsSponsor(!isSponsor); 
 
   return (
-    <Container className="my-32">
+    <Container className="mt-36 mb-32">
       <div id="how-section" className="w-[90%] sm:w-[75%] mb-14 text-center">
         <Typography className="text-4xl sm:text-6xl text-black" weight="700">
           How to be part of this

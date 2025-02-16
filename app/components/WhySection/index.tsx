@@ -7,7 +7,7 @@ import { reasons } from "../../constants/reasons";
 
 const WhySection = () => {
   return (
-    <CenteredElement className="min-h-[90vh] mb-24">
+    <CenteredElement className="min-h-[90vh] mt-16 md:mt-0 mb-24">
       <Container className="flex flex-col gap-x-4">
         <div className="w-full sm:w-[80%] mb-20 text-center">
           <Typography className="text-4xl sm:text-5xl">
