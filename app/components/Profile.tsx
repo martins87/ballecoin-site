@@ -23,6 +23,7 @@ export default function ProfilePage() {
   const [residenceCountry, setResidenceCountry] = useState<string>("");
   const [solanaAddress, setSolanaAddress] = useState<string>("");
   const [birthCountry, setBirthCountry] = useState<string>("");
+  const [balletSchool, setBalletSchool] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [instagram, setInstagram] = useState<string>("");
   const [tiktok, setTiktok] = useState<string>("");
@@ -48,6 +49,7 @@ export default function ProfilePage() {
         setResidenceCountry(dancer.residenceCountry);
         setSolanaAddress(dancer.solanaAddress);
         setBirthCountry(dancer.birthCountry);
+        setBalletSchool(dancer.balletSchool);
         setDescription(dancer.description);
         setInstagram(dancer.instagram);
         setTiktok(dancer.tiktok);
@@ -73,6 +75,7 @@ export default function ProfilePage() {
         residenceCountry,
         solanaAddress,
         birthCountry,
+        balletSchool,
         description,
         instagram,
         tiktok,
@@ -188,11 +191,23 @@ export default function ProfilePage() {
                   // disabled={!isEditing}
                 />
               </div>
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <Typography className="text-base" weight="500" font="inter">
                   Date of Birth
                 </Typography>
                 <Input className="rounded-[9px]" type="date" />
+              </div> */}
+              <div className="space-y-2">
+                <Typography className="text-base" weight="500" font="inter">
+                  Ballet School
+                </Typography>
+                <Input
+                  className="rounded-[9px]"
+                  placeholder="Enter your ballet school"
+                  value={balletSchool}
+                  onChange={(e) => setBalletSchool(e.target.value)}
+                  // disabled={!isEditing}
+                />
               </div>
               <div className="space-y-2">
                 <Typography className="text-base" weight="500" font="inter">

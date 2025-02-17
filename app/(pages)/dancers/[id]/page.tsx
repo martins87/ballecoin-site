@@ -12,10 +12,12 @@ import User from "../../../assets/images/user.png";
 
 // @ts-expect-error:next-line
 const DancerPage = ({ params }) => {
+  const [id] = useState<string>(params.id);
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState<string>("");
   // const [email, setEmail] = useState<string>("");
   const [residenceCountry, setResidenceCountry] = useState<string>("");
+  const [balletSchool, setBalletSchool] = useState<string>("");
   const [solanaAddress, setSolanaAddress] = useState<string>("");
   const [birthCountry, setBirthCountry] = useState<string>("");
   const [description, setDescription] = useState<string>("");
@@ -26,13 +28,15 @@ const DancerPage = ({ params }) => {
   useEffect(() => {
     const getDancer = async () => {
       setLoading(true);
-      const dancer = await getDancerById(params.id);
+      // const dancer = await getDancerById(params.id);
+      const dancer = await getDancerById(id);
       setLoading(false);
 
       console.log("dancer gotten from database", dancer);
       setName(dancer.name);
       // setEmail(dancer.email);
       setResidenceCountry(dancer.residenceCountry);
+      setBalletSchool(dancer.balletSchool);
       setSolanaAddress(dancer.solanaAddress);
       setBirthCountry(dancer.birthCountry);
       setDescription(dancer.description);
@@ -42,7 +46,7 @@ const DancerPage = ({ params }) => {
     };
 
     getDancer();
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -73,6 +77,10 @@ const DancerPage = ({ params }) => {
             <CenteredElement className='gap-x-2' justify='start'>
               <Typography weight='700'>Residence country:</Typography>
               <Typography>{residenceCountry}</Typography>
+            </CenteredElement>
+            <CenteredElement className='gap-x-2' justify='start'>
+              <Typography weight='700'>Ballet school:</Typography>
+              <Typography>{balletSchool}</Typography>
             </CenteredElement>
             <CenteredElement className='gap-x-2' direction='col' items='start' justify='start'>
               <Typography weight='700'>SOLANA address:</Typography>

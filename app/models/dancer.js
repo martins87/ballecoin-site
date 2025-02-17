@@ -8,6 +8,7 @@ const dancerSchema = new Schema(
     solanaAddress: String,
     birthCountry: String,
     // birthdate: String,
+    balletSchool: String,
     description: String,
     instagram: String,
     tiktok: String,
