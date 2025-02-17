@@ -5,7 +5,7 @@ import WhatSection from "./components/WhatSection";
 import WhySection from "./components/WhySection";
 import HowSection from "./components/HowSection";
 import Roadmap from "./components/Roadmap";
-// import Dancers from "./components/Dancers";
+import Dancers from "./components/Dancers";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <WhySection />
       <HowSection />
       <Roadmap />
-      {/* <Dancers /> */}
+      <Dancers />
     </main>
   );
 }

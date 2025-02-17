@@ -34,7 +34,8 @@ const DancerCard: FC<DancerCardProps> = ({ index, name, description, img }) => {
         src={img === "" ? fallback : img}
         alt="dancer"
         priority
-        unoptimized={typeof img === "string"}
+        // unoptimized={typeof img === "string"}
+        unoptimized
       />
       <Typography className="mr-auto" weight="700">
         {name}

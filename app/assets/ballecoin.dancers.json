@@ -1,0 +1,92 @@
+[{
+  "_id": "67ae422823a5ea8997b2cd82",
+  "name": "Beatriz Ribeiro",
+  "email": "biaxffribeiro@gmail.com",
+  "birthCountry": "Brazil",
+  "instagram": "beatrizxavier_bailarina",
+  "residenceCountry": "USA",
+  "solanaAddress": "EfpCXojeUsBor2Kn11tbyHKXw4BKFNauJEQwJ9EJM5Rj",
+  "balletSchool": ""
+},
+{
+  "_id": "67ae47ec02d57c60c2e701af",
+  "name": "William Roberts",
+  "email": "w.j.roberts@outlook.com",
+  "birthCountry": "UK",
+  "instagram": "@williamjosephdance",
+  "residenceCountry": "USA",
+  "solanaAddress": "BJ27GZnkJ2sxe4tWFzQUvPxMdgYnhXBjCHfCaUyymwm1",
+  "balletSchool": "Rock School For Dance Education "
+},
+{
+  "_id": "67ae48dc6c342124bc738b17",
+  "name": "Nevaeh Walton",
+  "email": "nevdances@gmail.com",
+  "balletSchool": ""
+},
+{
+  "_id": "67afa62186def4f44fcd4617",
+  "name": "Erika Stothard",
+  "email": "erika.stothard07@gmail.com",
+  "balletSchool": "The Rock School for Dance Education ",
+  "birthCountry": "Australia",
+  "instagram": "@erika.stothard",
+  "residenceCountry": "Usa"
+},
+{
+  "_id": "67afa92c68031a7f8d3c318a",
+  "name": "Reagan",
+  "email": "reaganreilly912@gmail.com",
+  "balletSchool": ""
+},
+{
+  "_id": "67afc7d3ab20c3cf46f78cbb",
+  "name": "Carolina Guillaume",
+  "email": "guillaumec@therockschool.org",
+  "balletSchool": ""
+},
+{
+  "_id": "67afddd0dee3ec1e3ffa95d5",
+  "name": "Tori Bradford",
+  "email": "torimbradford123@gmail.com",
+  "balletSchool": ""
+},
+{
+  "_id": "67b0046f3fe03b686b4afce5",
+  "name": "daniel",
+  "email": "martinsda@gmail.com",
+  "birthCountry": "Brasil",
+  "residenceCountry": "Brasil",
+  "description": "Sou uma coxinha. Era. Agora sou um bailarino russo.",
+  "tiktok": "tico teco",
+  "instagram": "daniel_aa_martins",
+  "solanaAddress": "CTmzezLgKrC7YWf9zDymH6gkTmu3SAUJryWaCB2CQJ52",
+  "balletSchool": "Vaganova Academy of Russian Ballet"
+},
+{
+  "_id": "67b10a1ea7b3de59bc52b887",
+  "name": "Danna Vega",
+  "email": "vegad@therockschool.org",
+  "balletSchool": "",
+  "description": ""
+},
+{
+  "_id": "67b15e1f9e86676910af2d0c",
+  "name": "Clarice Arsati",
+  "email": "arsaticlarice@gmail.com",
+  "balletSchool": "Ebateca ",
+  "birthCountry": "Brazil",
+  "description": "Brazilian ballerina / 13y",
+  "instagram": "claricearsati_bailarina",
+  "residenceCountry": "Brazil",
+  "tiktok": "claricearsatiii"
+},
+{
+  "_id": "67b1e9844b6b50d3f1f2efb6",
+  "name": "Cristian Solutchak",
+  "email": "cristiansolutchak@gmail.com",
+  "solanaAddress": "Bc1",
+  "birthCountry": "Brazil",
+  "residenceCountry": "Brazil",
+  "balletSchool": ""
+}]

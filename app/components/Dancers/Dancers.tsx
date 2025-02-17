@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 import CenteredElement from "../ui/CenteredElement";
 import DancerCard from "./DancerCard";
 import Typography from "../Typography";
-import { getDancers } from "@/app/lib/db";
+// import { getDancers } from "@/app/lib/db";
 import { Dancer } from "@/app/types/dancer";
-// import { dancers } from "../../constants/dancers";
+import { dancers as mockedDancers } from "../../constants/dancers";
 
 type DancersProps = {
   heroSection?: boolean;
@@ -25,9 +25,10 @@ const Dancers: FC<DancersProps> = ({ heroSection }) => {
   useEffect(() => {
     const getData = async () => {
       setLoading(true);
-      const users = await getDancers();
+      // const users = await getDancers();
+      const users = mockedDancers;
+      console.log('Dancers:', users);
       setLoading(false);
-      console.log(users);
       setDancers(users);
       setNumOfItems(state => isMobile && !!heroSection ? state : users.length)
     };

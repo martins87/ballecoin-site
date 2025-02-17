@@ -5,10 +5,12 @@ import Image from 'next/image';
 
 import Typography from '@/app/components/Typography';
 import Container from '@/app/components/ui/Container';
-import { getDancerById } from '@/app/lib/db';
+// import { getDancerById } from '@/app/lib/db';
 import CenteredElement from '@/app/components/ui/CenteredElement';
 import LoadingModal from "@/app/components/LoadingModal";
 import User from "../../../assets/images/user.png";
+import { dancers as mockedDancers } from '@/app/constants/dancers'
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 // @ts-expect-error:next-line
 const DancerPage = ({ params }) => {
@@ -22,17 +24,17 @@ const DancerPage = ({ params }) => {
   const [birthCountry, setBirthCountry] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [instagram, setInstagram] = useState<string>("");
-  const [tiktok, setTiktok] = useState<string>("");
-  const [picture, setPicture] = useState<string>("");
+  const [picture, setPicture] = useState<string | StaticImport>("");
 
   useEffect(() => {
     const getDancer = async () => {
       setLoading(true);
       // const dancer = await getDancerById(params.id);
-      const dancer = await getDancerById(id);
+      // const dancer = await getDancerById(id);
+      const dancer = mockedDancers.find(dancer => dancer._id === id)!;
       setLoading(false);
+      // console.log("dancer gotten from database", dancer);
 
-      console.log("dancer gotten from database", dancer);
       setName(dancer.name);
       // setEmail(dancer.email);
       setResidenceCountry(dancer.residenceCountry);
@@ -41,7 +43,6 @@ const DancerPage = ({ params }) => {
       setBirthCountry(dancer.birthCountry);
       setDescription(dancer.description);
       setInstagram(dancer.instagram);
-      setTiktok(dancer.tiktok);
       setPicture(dancer.picture);
     };
 
@@ -66,7 +67,8 @@ const DancerPage = ({ params }) => {
               src={picture || User}
               alt="Profile img"
               priority
-              unoptimized={typeof picture === "string"}
+              // unoptimized={typeof picture === "string"}
+              unoptimized
               />
           </CenteredElement>
           <CenteredElement className='w-full md:w-1/2 gap-y-4' direction="col" items='start'>
@@ -89,10 +91,6 @@ const DancerPage = ({ params }) => {
             <CenteredElement className='gap-x-2' justify='start'>
               <Typography weight='700'>Instagram:</Typography>
               <Typography>{instagram}</Typography>
-            </CenteredElement>
-            <CenteredElement className='gap-x-2' justify='start'>
-              <Typography weight='700'>Tiktok:</Typography>
-              <Typography>{tiktok}</Typography>
             </CenteredElement>
             <CenteredElement className='gap-x-2' direction='col' items='start' justify='start'>
               <Typography weight='700'>Description:</Typography>
