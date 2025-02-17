@@ -50,11 +50,11 @@ const Navbar = () => {
                   How to join
                 </Typography>
               </Link>
-              <Link href="/dancers">
+              {/* <Link href="/dancers">
                 <Typography className="text-base text-[#5A5A5A]" weight="500">
                   Dancers
                 </Typography>
-              </Link>
+              </Link> */}
             </CenteredElement>
           </CenteredElement>
           {isLoggedIn ? (

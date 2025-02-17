@@ -60,7 +60,7 @@ export default function Footer() {
                   </Typography>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/dancers"
                   className="hover:text-gray-900 transition-colors"
@@ -69,7 +69,7 @@ export default function Footer() {
                     Dancers
                   </Typography>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
