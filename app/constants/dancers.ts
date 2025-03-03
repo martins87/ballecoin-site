@@ -147,7 +147,7 @@ export const dancers: Dancer[] = [
     _id: "67c4eec1a58ed0481b3d999b",
     name: "Amanda Assunção",
     email: "amanda.ballet05@gmail.com",
-    solanaAddress: "Bc1",
+    solanaAddress: "",
     birthCountry: "Brasil",
     residenceCountry: "Brasil",
     balletSchool: "Ebateca Villas",
