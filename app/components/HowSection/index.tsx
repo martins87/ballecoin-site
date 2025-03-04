@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import Typography from "../Typography";
 import CenteredElement from "../ui/CenteredElement";
@@ -11,11 +11,12 @@ import Button from "../ui/Button";
 import { twMerge } from "tailwind-merge";
 
 const HowSection = () => {
-  const [isSponsor, setIsSponsor] = useState(true); 
+  const router = useRouter();
+  const [isSponsor, setIsSponsor] = useState(true);
 
-  const handleClick = () => redirect("/join");
+  const handleClick = () => router.push("/join");
 
-  const handleToggle = () => setIsSponsor(!isSponsor); 
+  const handleToggle = () => setIsSponsor(!isSponsor);
 
   return (
     <Container className="mt-36 mb-32">

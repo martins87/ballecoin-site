@@ -21,7 +21,6 @@ const sponsorSteps = [
   },
 ];
 
-
 const artistSteps = [
   {
     index: 1,
@@ -42,17 +41,16 @@ const artistSteps = [
 ];
 
 interface HowToJoinCardProps {
-  isSponsor: boolean; 
+  isSponsor: boolean;
 }
 
-
 const HowToJoinCard = ({ isSponsor }: HowToJoinCardProps) => {
-  const steps = isSponsor ? sponsorSteps : artistSteps; 
+  const steps = isSponsor ? sponsorSteps : artistSteps;
 
   return (
     <CenteredElement
       className={twMerge(
-        "w-[75%] tablet:w-3/5 sm:[box-shadow:0px_202.825px_490.554px_rgba(120,_120,_168,_0.17)] sm:border sm:shadow-lg rounded-[40px] mt-6 sm:px-8 py-10",
+        "w-[75%] tablet:w-3/5 sm:[box-shadow:0px_202.825px_490.554px_rgba(120,_120,_168,_0.17)] sm:border sm:shadow-lg rounded-[40px] mt-6 sm:px-8 py-10"
       )}
       direction="col"
     >
@@ -74,7 +72,10 @@ const HowToJoinCard = ({ isSponsor }: HowToJoinCardProps) => {
                 {step.index}
               </Typography>
             </CenteredElement>
-            <Typography className="text-lg tablet:text-xl text-black/80" weight="500">
+            <Typography
+              className="text-lg tablet:text-xl text-black/80"
+              weight="500"
+            >
               {step.label}
             </Typography>
           </CenteredElement>
