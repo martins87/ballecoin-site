@@ -16,7 +16,7 @@ const HowSection = () => {
 
   const handleClick = () => router.push("/join");
 
-  const handleToggle = () => setIsSponsor(!isSponsor);
+  const handleToggle = (sponsor: boolean) => setIsSponsor(sponsor);
 
   return (
     <Container className="mt-36 mb-32">
@@ -37,25 +37,41 @@ const HowSection = () => {
       </div>
       <CenteredElement className="w-4/5 sm:w-[65%] md:w-[50%]">
         <CenteredElement
-          onClick={handleToggle}
+          onClick={() => handleToggle(true)}
           className={twMerge(
             "py-2 px-4 sm:px-8 tablet:px-2 [box-shadow:0px_5.10638px_12.766px_#E7E7FB] rounded-tl-[45.94px] rounded-br-none rounded-tr-none rounded-bl-[45.94px] hover:cursor-pointer",
-            "bg-[linear-gradient(96.71deg,_#5656F2_0%,_#3333DC_101.64%)]"
+            isSponsor
+              ? "bg-[linear-gradient(96.71deg,_#5656F2_0%,_#3333DC_101.64%)]"
+              : "bg-[#3939DF]/10"
           )}
         >
-          <Typography className="text-sm sm:text-base text-white" weight="700">
+          <Typography
+            className={twMerge(
+              isSponsor
+                ? "text-sm sm:text-base text-white"
+                : "text-sm sm:text-base text-[#3F5BD9]"
+            )}
+            weight="700"
+          >
             For Sponsors
           </Typography>
         </CenteredElement>
         <CenteredElement
-          onClick={handleToggle}
+          onClick={() => handleToggle(false)}
           className={twMerge(
-            "py-2 px-4 sm:px-8 tablet:px-2 [box-shadow:0px_5.10638px_12.766px_#E7E7FB] rounded-tl-[45.94px] rounded-br-none rounded-tr-none rounded-bl-[45.94px] -rotate-180 hover:cursor-pointer",
-            "bg-[#3939DF]/10"
+            "py-2 px-4 sm:px-8 tablet:px-2 [box-shadow:0px_5.10638px_12.766px_#E7E7FB] rounded-tl-[45.94px] rounded-br-none rounded-tr-none rounded-bl-[45.94px] hover:cursor-pointer -rotate-180",
+            isSponsor
+              ? "bg-[#3939DF]/10"
+              : "bg-[linear-gradient(96.71deg,_#5656F2_0%,_#3333DC_101.64%)]"
           )}
         >
           <Typography
-            className="text-sm sm:text-base text-[#3F5BD9] -rotate-180"
+            className={twMerge(
+              "-rotate-180",
+              !isSponsor
+                ? "text-sm sm:text-base text-white"
+                : "text-sm sm:text-base text-[#3F5BD9]"
+            )}
             weight="700"
           >
             For Artists
