@@ -8,6 +8,7 @@ import dancer6 from "../assets/images/dancers/tori.jpeg";
 import dancer7 from "../assets/images/dancers/danna.png";
 import dancer8 from "../assets/images/dancers/clarice.jpg";
 import dancer9 from "../assets/images/dancers/maria.jpeg";
+import dancer10 from "../assets/images/dancers/amanda.jpg";
 import placeholder from "../assets/images/placeholder.svg";
 import { Dancer } from "../types/dancer";
 
@@ -148,7 +149,7 @@ export const dancers: Dancer[] = [
     _id: "67c4eec1a58ed0481b3d999b",
     name: "Amanda Assunção",
     email: "amanda.ballet05@gmail.com",
-    solanaAddress: "",
+    solanaAddress: "9L6ZHiDokYPz7YCfreYfqBW2NREHtegsWfrVy3HbH49H",
     birthCountry: "Brasil",
     residenceCountry: "Brasil",
     balletSchool: "Ebateca Villas",
@@ -158,7 +159,7 @@ export const dancers: Dancer[] = [
     Meu sonho é ser uma grande bailarina profissional.
     `,
     instagram: "@amanda.assuncao.92123",
-    picture: placeholder,
+    picture: dancer10,
   },
   {
     _id: "67c6268073d4f2ff0bc3789c",
