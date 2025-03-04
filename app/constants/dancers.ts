@@ -7,6 +7,7 @@ import dancer5 from "../assets/images/dancers/carolina.jpeg";
 import dancer6 from "../assets/images/dancers/tori.jpeg";
 import dancer7 from "../assets/images/dancers/danna.png";
 import dancer8 from "../assets/images/dancers/clarice.jpg";
+import dancer9 from "../assets/images/dancers/maria.jpeg";
 import placeholder from "../assets/images/placeholder.svg";
 import { Dancer } from "../types/dancer";
 
@@ -169,6 +170,6 @@ export const dancers: Dancer[] = [
     balletSchool: "The Rock School",
     description: ``,
     instagram: "ines.dancerr",
-    picture: placeholder,
+    picture: dancer9,
   },
 ];
