@@ -159,4 +159,16 @@ export const dancers: Dancer[] = [
     instagram: "@amanda.assuncao.92123",
     picture: placeholder,
   },
+  {
+    _id: "67c6268073d4f2ff0bc3789c",
+    name: "María Inés",
+    email: "mariainescalva@gmail.com",
+    solanaAddress: "",
+    birthCountry: "Mexico",
+    residenceCountry: "USA",
+    balletSchool: "The Rock School",
+    description: ``,
+    instagram: "ines.dancerr",
+    picture: placeholder,
+  },
 ];
