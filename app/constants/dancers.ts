@@ -9,7 +9,7 @@ import dancer7 from "../assets/images/dancers/danna.png";
 import dancer8 from "../assets/images/dancers/clarice.jpg";
 import dancer9 from "../assets/images/dancers/maria.jpeg";
 import dancer10 from "../assets/images/dancers/amanda.jpg";
-import placeholder from "../assets/images/placeholder.svg";
+// import placeholder from "../assets/images/placeholder.svg";
 import { Dancer } from "../types/dancer";
 
 export const dancers: Dancer[] = [
